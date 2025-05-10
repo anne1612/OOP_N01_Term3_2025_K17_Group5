@@ -1,5 +1,6 @@
 public class student
 {
     int id;
-    string ten;
+    string name;
+    int age;
 }
