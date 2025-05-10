@@ -1,7 +1,8 @@
 public class st
 {
     int id;
-    string name;
+    string ten;
+    int year;
     int age;
     int year;
     int age2;
