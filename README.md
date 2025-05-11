@@ -126,6 +126,10 @@ Câu 5:
   - Tạo hóa đơn mới, hiển thị thông tin đơn hàng, cập nhật trạng thái và hiển thị lại đơn hàng để kiểm tra. 
 
 Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+  - Tạo, hiển thị và cập nhật sản phẩm, iảm số lượng sản phẩm khi bán, Xử lý lỗi khi số lượng sản phẩm không đủ
+    
+Để kiểm tra tính đúng đắn và ổn định của lớp Payment, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+  - Tạo, hiển thị và cập nhật thanh toán, Cập nhật phương thức thanh toán, Kiểm tra trạng thái thanh toán chưa hoàn tất
 
 
 Tạo sản phẩm mới
