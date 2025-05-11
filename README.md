@@ -86,7 +86,7 @@ Cấu trúc folder
 ### 📁 Cấu trúc thư mục Project
 
 ```plaintext
-Project/
+├── Project/
 │   ├── src/
 │   │   ├── model/           # Chứa các class đối tượng (User, Product, Order,...)
 │   │   ├── service/         # Xử lý logic hệ thống (mua hàng, thanh toán,...)
