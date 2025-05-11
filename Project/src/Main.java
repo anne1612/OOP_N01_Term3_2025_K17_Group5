@@ -1,5 +1,15 @@
-public class Main {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+/*import TestUser;
+import TestProduct;
+import TestOrder;
+import TestPayment;*/
+
+public class Main 
+{
+    public static void main(String[] args) /*throws Exception*/ 
+    {
+        TestUser.main();
+        TestProduct.main();
+        TestOrder.main();
+        TestPayment.main();
     }
 }

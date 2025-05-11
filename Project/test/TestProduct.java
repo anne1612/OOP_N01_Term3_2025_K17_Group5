@@ -1,7 +1,5 @@
-
-
 public class TestProduct {
-  public static void main(String[] args) {
+  public static void main() {
         // Tạo một sản phẩm mới
         Product product1 = new Product(101, 5001, "Ao Hoodie", 250000, 100, "Ao hoodie mau den, chat lieu cotton.");
 
