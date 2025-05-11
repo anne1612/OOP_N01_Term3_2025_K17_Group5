@@ -1,38 +1,58 @@
-public class Product {
-    private String productId;
-    private String productName;
-    private double price;
-    private int stock;
-    private String description;
 
-    public Product(String productId, String productName, double price, int stock, String description) {
+public class Product {
+    private int productId;         // Mã sản phẩm
+    private int sellerId;          // Mã người bán
+    private String productName;    // Tên sản phẩm
+    private double price;          // Giá sản phẩm
+    private int stock;             // Số lượng sản phẩm
+    private String description;    // Mô tả sản phẩm
+
+    // Constructor
+    public Product(int productId, int sellerId, String productName, double price, int stock, String description) {
         this.productId = productId;
+        this.sellerId = sellerId;
         this.productName = productName;
         this.price = price;
         this.stock = stock;
         this.description = description;
     }
 
-    public String getProductId() { return productId; }
-    public String getProductName() { return productName; }
-    public double getPrice() { return price; }
-    public int getStock() { return stock; }
-    public String getDescription() { return description; }
+    // Getter and Setter methods
+    public int getProductId() { return productId; }
+    public void setProductId(int productId) { this.productId = productId; }
 
+    public int getSellerId() { return sellerId; }
+    public void setSellerId(int sellerId) { this.sellerId = sellerId; }
+
+    public String getProductName() { return productName; }
+    public void setProductName(String productName) { this.productName = productName; }
+
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+
+    public int getStock() { return stock; }
+    public void setStock(int stock) { this.stock = stock; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    // Display product info
+    public void displayProductInfo() {
+        System.out.println("Ma san pham: " + productId);
+        System.out.println("Ma nguoi ban: " + sellerId);
+        System.out.println("Ten san pham: " + productName);
+        System.out.println("Gia: " + price);
+        System.out.println("So luong con lai: " + stock);
+        System.out.println("Mo ta: " + description);
+    }
+
+    // Update stock after sale
     public void updateStock(int quantitySold) {
         if (quantitySold <= stock) {
             stock -= quantitySold;
-            System.out.println("✅ Cap nhat so luong thanh cong. So luong con lai: " + stock);
+            System.out.println("Cap nhap so luong thanh cong. so luong con lai: " + stock);
         } else {
-            System.out.println("❌ So luong ban khong hop le. Khong du hang!");
+            System.out.println("So luong ban khong hop le. khong du hang!");
         }
-    }
-
-    public void displayProductInfo() {
-        System.out.println("🆔 Ma san pham: " + productId);
-        System.out.println("📛 Ten san pham: " + productName);
-        System.out.println("💵 Gia: " + price);
-        System.out.println("📦 So luong: " + stock);
-        System.out.println("📝 Mo ta: " + description);
     }
 }

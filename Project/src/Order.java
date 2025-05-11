@@ -1,17 +1,18 @@
 import java.time.LocalDate;
-
+import java.util.List;
 public class Order {
     private String orderId;
     private String userId;
-    private String productId;   // Danh sách ID sản phẩm dạng chuỗi: "1,2,3"
+    private List<Integer> productIds;
     private double totalAmount;
     private LocalDate orderDate;
     private String status;
 
-    public Order(String orderId, String userId, String productId) {
+    // Constructor
+    public Order(String orderId, String userId, List<Integer> productIds) {
         this.orderId = orderId;
         this.userId = userId;
-        this.productId = productId;
+        this.productIds = productIds;
         this.orderDate = LocalDate.now();
         this.status = "Chờ xác nhận";
         this.totalAmount = 0;
@@ -28,7 +29,7 @@ public class Order {
     public void displayOrderInfo() {
         System.out.println(" Ma don hang: " + orderId);
         System.out.println(" Ma nguoi dung: " + userId);
-        System.out.println(" Danh sach ma san pham: " + productId);
+        System.out.println(" Danh sach ma san pham: " + productIds);
         System.out.println(" Tong tien: " + totalAmount + " VND");
         System.out.println(" Ngay dat hang: " + orderDate);
         System.out.println(" Trang thai: " + status);

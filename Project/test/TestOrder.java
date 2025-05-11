@@ -1,17 +1,22 @@
+import java.util.Arrays;
 
 public class TestOrder {
     public static void main(String[] args) {
-        // Tạo đơn hàng mẫu
-        Order order = new Order("ORD001", "USER123", "PROD456");
-        order.setTotalAmount(999000); // Giả sử tổng tiền
+        // Create product and order sample
+        Product product = new Product(101, 10, "Smartphone", 5000000, 50, "High-end smartphone");
+        product.displayProductInfo();
 
-        System.out.println(" THÔNG TIN ĐƠN HÀNG:");
+        // Create an order with a list of product IDs
+        Order order = new Order("ORD001", "USER123", Arrays.asList(101, 102));
+        order.setTotalAmount(5000000 * 2);
+
+        System.out.println("\n THONG TIN DON HANG:");
         order.displayOrderInfo();
 
-        // Cập nhật trạng thái
+        // Update order status
         order.updateStatus("Đang giao");
 
-        System.out.println("\n Sau khi cập nhật trạng thái:");
+        System.out.println("\n Sau khi cap nhat trang thai:");
         order.displayOrderInfo();
     }
 }
