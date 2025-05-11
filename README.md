@@ -97,5 +97,11 @@ Cấu trúc folder
 ```
 
 
+Câu 4: Chúng em viết 7 class cho 4 đối tượng xác định được ở câu 2 (bao gồm main). 
+- Với đối tượng user ta có: class user, class customer và class seller. Customer và seller kế thừa user. 
+- Với đối tượng product ta có: class product 
+- Với đối tượng order ta có: class order
+- Với đối tượng payment ta có: class payment
+
 
 
