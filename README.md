@@ -90,8 +90,8 @@ shopee-clone/
 ├── src/
 │   ├── model/           # Chứa các class đối tượng (User, Product, Order,...)
 │   ├── service/         # Xử lý logic hệ thống (mua hàng, thanh toán,...)
-│   ├── test/            # Chứa các class kiểm thử (UserTest, ProductTest,...)
 │   └── main/            # File chạy chính App.java
+├── test/            # Chứa các class kiểm thử (UserTest, ProductTest,...)
 ├── README.md            # File mô tả dự án
 └── .gitignore           # Các file không cần đẩy lên Git
 ```
