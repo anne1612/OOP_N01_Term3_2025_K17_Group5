@@ -20,8 +20,11 @@ Github id: nglthu
 - Nhật kí tạm thời: 
   + 9/5: họp online để thống nhất và mô phỏng dự án. Thảo luận bài tập 1.
   + 10/5: làm được 1/3 bài tập 1 và tiếp tục phần còn lại. Dự kiến 12h trưa mai hoàn thành bài tập.
+
 Câu 1: Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
+
 Câu 2: Phân tích 4 đối tượng bao gồm: user, product, order, payment
+
 I. Đối tượng người dùng (user):
 1. Miêu tả thông tin của người dùng:
 Mã người dùng
@@ -100,6 +103,7 @@ Câu 4: Chúng em viết 7 class cho 4 đối tượng xác định được ở
 - Với đối tượng product ta có: class product 
 - Với đối tượng order ta có: class order
 - Với đối tượng payment ta có: class payment
+
 (Các chức năng cơ bản tương tự câu 2)
 
 
