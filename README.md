@@ -107,3 +107,17 @@ Câu 4: Chúng em viết 7 class cho 4 đối tượng xác định được ở
 (Các chức năng cơ bản tương tự câu 2)
 
 
+Câu 5:
+Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+
+Tạo sản phẩm mới
+Kiểm tra chức năng tạo mới sản phẩm, đảm bảo rằng các thông tin như mã sản phẩm, tên sản phẩm, giá, số lượng và mô tả được khởi tạo đúng.
+
+Giảm số lượng sản phẩm hợp lệ
+Kiểm tra chức năng giảm số lượng sản phẩm sau khi bán hàng. Đảm bảo rằng khi có giao dịch mua, số lượng sản phẩm trong kho được giảm chính xác và không vượt quá giới hạn.
+
+Kiểm tra giảm số lượng sản phẩm không hợp lệ
+Kiểm tra trường hợp người dùng cố gắng giảm số lượng sản phẩm vượt quá số lượng tồn kho. Hệ thống cần trả về thông báo lỗi và không cho phép giao dịch.
+
+Cập nhật thông tin sản phẩm
+Kiểm tra khả năng cập nhật thông tin của sản phẩm, bao gồm tên sản phẩm, giá, mô tả. Đảm bảo các thay đổi này được lưu lại và phản ánh chính xác trong hệ thống.
