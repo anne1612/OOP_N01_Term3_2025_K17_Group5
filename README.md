@@ -83,14 +83,19 @@ Cập nhật trạng thái thanh toán
 
 Cấu trúc folder
 
+### 📁 Cấu trúc thư mục Project
+
+```plaintext
 shopee-clone/
 ├── src/
-│   ├── model/           # chứa các class như User, Product, Order
-│   ├── service/         # xử lý logic (mua hàng, thanh toán, login...)
-│   └──  main/           # chứa App.java
-├── test/                # chứa các file kiểm thử
-├── README.md
-└── .gitignore
+│   ├── model/           # Chứa các class đối tượng (User, Product, Order,...)
+│   ├── service/         # Xử lý logic hệ thống (mua hàng, thanh toán,...)
+│   ├── test/            # Chứa các class kiểm thử (UserTest, ProductTest,...)
+│   └── main/            # File chạy chính App.java
+├── README.md            # File mô tả dự án
+└── .gitignore           # Các file không cần đẩy lên Git
+```
+
 
 
 
