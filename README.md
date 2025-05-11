@@ -87,11 +87,10 @@ shopee-clone/
 ├── src/
 │   ├── model/           # chứa các class như User, Product, Order
 │   ├── service/         # xử lý logic (mua hàng, thanh toán, login...)
-│   ├── test/            # chứa các file kiểm thử
-│   └── main/            # chứa App.java
+│   └──  main/           # chứa App.java
+├── test/                # chứa các file kiểm thử
 ├── README.md
 └── .gitignore
-
 
 
 
