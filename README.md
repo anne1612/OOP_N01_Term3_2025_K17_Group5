@@ -20,6 +20,7 @@ Github id: nglthu
 - Nhật kí tạm thời: 
   + 9/5: họp online để thống nhất và mô phỏng dự án. Thảo luận bài tập 1.
   + 10/5: làm được 1/3 bài tập 1 và tiếp tục phần còn lại. Dự kiến 12h trưa mai hoàn thành bài tập.
+Câu 1: Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
 
 I. Đối tượng người dùng (user):
 I.Miêu tả thông tin của người dùng:
