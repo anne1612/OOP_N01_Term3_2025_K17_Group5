@@ -21,9 +21,9 @@ Github id: nglthu
   + 9/5: họp online để thống nhất và mô phỏng dự án. Thảo luận bài tập 1.
   + 10/5: làm được 1/3 bài tập 1 và tiếp tục phần còn lại. Dự kiến 12h trưa mai hoàn thành bài tập.
 
-Câu 1: Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
+### Câu 1: Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
 
-Câu 2: Phân tích 4 đối tượng bao gồm: user, product, order, payment
+### Câu 2: Phân tích 4 đối tượng bao gồm: user, product, order, payment
 
 I. Đối tượng người dùng (user):
 1. Miêu tả thông tin của người dùng:
@@ -82,7 +82,7 @@ Hiển thị thông tin thanh toán
 Cập nhật phương thức thanh toán
 Cập nhật trạng thái thanh toán
 
-Câu 3: Cấu trúc folder
+### Câu 3: Cấu trúc folder
 
 ### 📁 Cấu trúc thư mục Project
 
@@ -108,7 +108,8 @@ Project/
 ```
 
 
-Câu 4: Chúng em viết 7 class cho 4 đối tượng xác định được ở câu 2 (bao gồm main). 
+### Câu 4: 
+  Chúng em viết 7 class cho 4 đối tượng xác định được ở câu 2 (bao gồm main). 
 - Với đối tượng user ta có: class user, class customer và class seller. Customer và seller kế thừa user. 
 - Với đối tượng product ta có: class product 
 - Với đối tượng order ta có: class order
@@ -117,29 +118,17 @@ Câu 4: Chúng em viết 7 class cho 4 đối tượng xác định được ở
 (Các chức năng cơ bản tương tự câu 2)
 
 
-Câu 5:
+### Câu 5:
 
-Để kiểm tra tính đúng đắn và ổn định của lớp user, customer và seller, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Đăng kí, hiển thị thông tin, đăng nhập, mua (của customer) và bán (của seller)
-
-Để kiểm tra tính đúng đắn và ổn định của lớp order, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo hóa đơn mới, hiển thị thông tin đơn hàng, cập nhật trạng thái và hiển thị lại đơn hàng để kiểm tra. 
+Để kiểm tra tính đúng đắn và ổn định của lớp User, Customer và Seller, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+  - Đăng kí, hiển thị thông tin, đăng nhập, mua (của customer) và bán (của seller).
 
 Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo, hiển thị và cập nhật sản phẩm, iảm số lượng sản phẩm khi bán, Xử lý lỗi khi số lượng sản phẩm không đủ
+  - Tạo, hiển thị và cập nhật số lượng sản phẩm, xử lý lỗi khi số lượng sản phẩm không đủ và hiển thị lại thông tin sản phẩm sau khi cập nhật.
+
+Để kiểm tra tính đúng đắn và ổn định của lớp Order, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+  - Tạo hóa đơn mới, hiển thị thông tin đơn hàng, cập nhật trạng thái và hiển thị lại đơn hàng để kiểm tra. 
     
 Để kiểm tra tính đúng đắn và ổn định của lớp Payment, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo, hiển thị và cập nhật thanh toán, Cập nhật phương thức thanh toán, Kiểm tra trạng thái thanh toán chưa hoàn tất
+  - Tạo, hiển thị và cập nhật thanh toán, cập nhật phương thức thanh toán, kiểm tra trạng thái thanh toán chưa hoàn tất.
 
-
-Tạo sản phẩm mới
-Kiểm tra chức năng tạo mới sản phẩm, đảm bảo rằng các thông tin như mã sản phẩm, tên sản phẩm, giá, số lượng và mô tả được khởi tạo đúng.
-
-Giảm số lượng sản phẩm hợp lệ
-Kiểm tra chức năng giảm số lượng sản phẩm sau khi bán hàng. Đảm bảo rằng khi có giao dịch mua, số lượng sản phẩm trong kho được giảm chính xác và không vượt quá giới hạn.
-
-Kiểm tra giảm số lượng sản phẩm không hợp lệ
-Kiểm tra trường hợp người dùng cố gắng giảm số lượng sản phẩm vượt quá số lượng tồn kho. Hệ thống cần trả về thông báo lỗi và không cho phép giao dịch.
-
-Cập nhật thông tin sản phẩm
-Kiểm tra khả năng cập nhật thông tin của sản phẩm, bao gồm tên sản phẩm, giá, mô tả. Đảm bảo các thay đổi này được lưu lại và phản ánh chính xác trong hệ thống.
