@@ -122,8 +122,11 @@ Câu 5:
 Để kiểm tra tính đúng đắn và ổn định của lớp user, customer và seller, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
   - Đăng kí, hiển thị thông tin, đăng nhập, mua (của customer) và bán (của seller)
 
+Để kiểm tra tính đúng đắn và ổn định của lớp order, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+  - Tạo hóa đơn mới, hiển thị thông tin đơn hàng, cập nhật trạng thái và hiển thị lại đơn hàng để kiểm tra. 
 
-- Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
+
 
 Tạo sản phẩm mới
 Kiểm tra chức năng tạo mới sản phẩm, đảm bảo rằng các thông tin như mã sản phẩm, tên sản phẩm, giá, số lượng và mô tả được khởi tạo đúng.
