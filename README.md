@@ -87,14 +87,24 @@ Câu 3: Cấu trúc folder
 ### 📁 Cấu trúc thư mục Project
 
 ```plaintext
-├── Project/
-│   ├── src/
-│   │   ├── model/           # Chứa các class đối tượng (User, Product, Order,...)
-│   │   ├── service/         # Xử lý logic hệ thống (mua hàng, thanh toán,...)
-│   │   └── main/            # File chạy chính App.java
-│   └── test/                # Chứa các class kiểm thử (UserTest, ProductTest,...)
-├── README.md            # File mô tả dự án
-└── .gitignore           # Các file không cần đẩy lên Git
+Project/
+├── .vscode/
+├── bin/
+├── src/
+│   ├── Customer.java
+│   ├── Main.java
+│   ├── Order.java
+│   ├── Payment.java
+│   ├── Product.java
+│   ├── Seller.java
+│   └── User.java
+├── test/
+│   ├── TestOrder.java
+│   ├── TestPayment.java
+│   ├── TestProduct.java
+│   └── TestUser.java
+├── README.md
+
 ```
 
 
