@@ -27,60 +27,60 @@ Github id: nglthu
 
 I. Đối tượng người dùng (user):
 1. Miêu tả thông tin của người dùng:
-Mã người dùng
-Tên người dùng
-Giới tính
-Ngày sinh
-Số điện thoại
-Email
-Địa chỉ
-Mật khẩu
-Loại người dùng (Khách hàng/Nhà cung cấp)
+ + Mã người dùng
+ + Tên người dùng
+ + Giới tính
+ + Ngày sinh
+ + Số điện thoại
+ + Email
+ + Địa chỉ
+ + Mật khẩu
+ + Loại người dùng (Khách hàng/Nhà cung cấp)
 2. Phương thức hoạt động liên quan đến đối tượng người dùng:
-Đăng kí tài khoản, đăng nhập (bằng sdt, email)
-Hiển thị thông sinh người dùng
-Mua sản phẩm, thanh toán (khách hàng)
-Đăng bán sản phẩm (nhà cung cấp)
+ + Đăng kí tài khoản, đăng nhập (bằng sdt, email)
+ + Hiển thị thông sinh người dùng
+ + Mua sản phẩm, thanh toán (khách hàng)
+ + Đăng bán sản phẩm (nhà cung cấp)
 
 II. Đối tượng sản phẩm (product):
 1. Miêu tả thông tin của sản phẩm:
-Mã sản phẩm
-Mã người bán (nhà cung cấp)
-Tên sản phẩm
-Giá sản phẩm
-Số lượng sản phẩm
-Mô tả sản phẩm
+ + Mã sản phẩm
+ + Mã người bán (nhà cung cấp)
+ + Tên sản phẩm
+ + Giá sản phẩm
+ + Số lượng sản phẩm
+ + Mô tả sản phẩm
 2. Phương thức hoạt động liên quan đến đối tượng sản phẩm:
-Hiển thị thông tin sản phẩm
-Cập nhật số lượng sản phẩm (sau khi mua bán)
+ + Hiển thị thông tin sản phẩm
+ + Cập nhật số lượng sản phẩm (sau khi mua bán)
 
 III. Đối tượng đơn hàng (order):
 1. Miêu tả thông tin của đơn hàng:
-Mã đơn hàng
-Mã người dùng (khách hàng)
-Danh sách sản phẩm (tên, số lượng, giá)
-Tổng tiền
-Ngày đặt hàng
-Trạng thái đơn hàng (chờ xác nhận, đang giao, đã nhận, đã hủy)
+ + Mã đơn hàng
+ + Mã người dùng (khách hàng)
+ + Danh sách sản phẩm (tên, số lượng, giá)
+ + Tổng tiền
+ + Ngày đặt hàng
+ + Trạng thái đơn hàng (chờ xác nhận, đang giao, đã nhận, đã hủy)
 2. Phương thức hoạt động liên quan đến đối tượng đơn hàng:
-Tạo đơn hàng mới (khi khách hàng mua)
-Hiển thị thông tin đơn hàng
-Cập nhật trạng thái đơn hàng
-Tính tổng số tiền
+ + Tạo đơn hàng mới (khi khách hàng mua)
+ + Hiển thị thông tin đơn hàng
+ + Cập nhật trạng thái đơn hàng
+ + Tính tổng số tiền
 
 IV. Đối tượng thanh toán (payment):
 1. Miêu tả thông tin của thanh toán:
-Mã thanh toán
-Mã đơn hàng
-Số tiền thanh toán
-Phương thức thanh toán (tiền mặt, ví điện tử)
-Trạng thái thanh toán (đã thanh toán, chưa thanh toán)
-Ngày thanh toán
+ + Mã thanh toán
+ + Mã đơn hàng
+ + Số tiền thanh toán
+ + Phương thức thanh toán (tiền mặt, ví điện tử)
+ + Trạng thái thanh toán (đã thanh toán, chưa thanh toán)
+ + Ngày thanh toán
 2. Phương thức hoạt động liên quan đến đối tượng thanh toán:
-Thực hiện thanh toán
-Hiển thị thông tin thanh toán
-Cập nhật phương thức thanh toán
-Cập nhật trạng thái thanh toán
+ + Thực hiện thanh toán
+ + Hiển thị thông tin thanh toán
+ + Cập nhật phương thức thanh toán
+ + Cập nhật trạng thái thanh toán
 
 ### Câu 3: Cấu trúc folder
 
