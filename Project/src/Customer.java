@@ -5,7 +5,6 @@ public class Customer extends User         //tính kế thừa
     {
         super(userId, name, gender, birthDate, phoneNumber, email, address, password, "Khách hàng");
     }
-    
 
     public void buy(String productName)     //mua sản phẩm
     {

@@ -11,5 +11,6 @@ public class Main
         TestProduct.main();
         TestOrder.main();
         TestPayment.main();
+        TestTime.test();
     }
 }

@@ -34,7 +34,7 @@ public class User
     public String getPassword() { return password; }
     public String getUserType() { return userType; }
     public void setUser(String userId, String name, String gender, String birthDate, String phoneNumber, 
-            String email, String address, String password, String userType) 
+                            String email, String address, String password, String userType) 
     { 
         this.userId = userId;
         this.name = name;
