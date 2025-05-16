@@ -7,7 +7,7 @@ public class Main
 {
     public static void main(String[] args) /*throws Exception*/ 
     {
-        TestUser.main();
+        TestUser.test();
         TestProduct.main();
         TestOrder.main();
         TestPayment.main();
