@@ -161,7 +161,12 @@ Cụ thể:
   + cập nhập thông tin sản phẩm
   + tính tổng sản phẩm
   + gán sản phẩm cho đơn hàng
-- Dữ liệu được lưu trữ xuống file nhị phân
+
+_ có chức năng quản lý thanh toán (payment)
+  + Thực hiện thanh toán
+  + Hiển thị thông tin thanh toán
+  + Cập nhật phương thức thanh toán
+  + Cập nhật trạng thái thanh toán
 
 + Cần tạo các lớp liên quan đến ...[đối tượng 01], ....[đối tượng 02], và ....[đối tượng 03] để đọc, ghi xuống 1 hay nhiều file.
 
