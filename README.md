@@ -155,8 +155,12 @@ Cụ thể:
   + Tính tổng số tiền
   + Gán đơn hàng cho người dùng
   
-- Có chức năng gán ...[đối tượng 01] cho phòng [đối tượng 02]. 
-
+- Có chức năng quản lý sản phẩm (product)
+  + thêm sủa xóa sản phẩm
+  + hiển thị thông tin đơn hàng
+  + cập nhập thông tin sản phẩm
+  + tính tổng sản phẩm
+  + gán sản phẩm cho đơn hàng
 - Dữ liệu được lưu trữ xuống file nhị phân
 
 + Cần tạo các lớp liên quan đến ...[đối tượng 01], ....[đối tượng 02], và ....[đối tượng 03] để đọc, ghi xuống 1 hay nhiều file.
