@@ -141,12 +141,20 @@ Yêu cầu:
 - Và các chức năng khác.
 
 Cụ thể: 
-- Quản lí người dùng (user)
+- Có chức năng quản lí người dùng (user)
   + Thêm, sửa, xóa người dùng 
   + Liệt kê thông tin về người dùng, có thể lọc ra các người dùng theo 2 loại: khách hàng (customer), nhà cung cấp (seller)
 - Có chức năng quản lý .......
 
 + Thêm, sửa, xóa ....[đối tượng 02].
+
+- Có chức năng quản lý đơn hàng (order)
+  + Thêm, sửa, xóa đơn hàng
+  + Hiển thị thông tin đơn hàng
+  + Cập nhập thông tin đơn hàng
+  + Tính tổng số tiền
+  + Gán đơn hàng cho người dùng
+  
 - Có chức năng gán ...[đối tượng 01] cho phòng [đối tượng 02]. 
 
 - Dữ liệu được lưu trữ xuống file nhị phân
