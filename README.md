@@ -132,3 +132,28 @@ Project/
 Để kiểm tra tính đúng đắn và ổn định của lớp Payment, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
   - Tạo, hiển thị và cập nhật thanh toán, cập nhật phương thức thanh toán, kiểm tra trạng thái thanh toán chưa hoàn tất.
 
+---
+Xây dựng ứng dụng mua bán hàng trực tuyến Shopbee
+
+Yêu cầu:
+- Giao diện Java Spring Boot.
+- Có chức năng quản lý người dùng, sản phẩm, đơn hàng
+- Và các chức năng khác.
+
+Cụ thể: 
+- Quản lí người dùng (user)
+  + Thêm, sửa, xóa người dùng 
+  + Liệt kê thông tin về người dùng, có thể lọc ra các người dùng theo 2 loại: khách hàng (customer), nhà cung cấp (seller)
+- Có chức năng quản lý .......
+
++ Thêm, sửa, xóa ....[đối tượng 02].
+- Có chức năng gán ...[đối tượng 01] cho phòng [đối tượng 02]. 
+
+- Dữ liệu được lưu trữ xuống file nhị phân
+
++ Cần tạo các lớp liên quan đến ...[đối tượng 01], ....[đối tượng 02], và ....[đối tượng 03] để đọc, ghi xuống 1 hay nhiều file.
+
+- Khi làm việc với dữ liệu trong bộ nhớ, dữ liệu cần được lưu trữ dưới dạng các Collection tùy chọn như ArrayList, LinkedList, Map, ....
+
+- Sinh viên có thể thêm các chức năng vào chương trình để ứng dụng phong phú hơn bằng cách thêm các nghiệp vụ cho bài toán (tùy chọn)
+
