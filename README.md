@@ -144,9 +144,6 @@ Cụ thể:
 - Có chức năng quản lí người dùng (user)
   + Thêm, sửa, xóa người dùng 
   + Liệt kê thông tin về người dùng, có thể lọc ra các người dùng theo 2 loại: khách hàng (customer), nhà cung cấp (seller)
-- Có chức năng quản lý .......
-
-+ Thêm, sửa, xóa ....[đối tượng 02].
 
 - Có chức năng quản lý đơn hàng (order)
   + Thêm, sửa, xóa đơn hàng
