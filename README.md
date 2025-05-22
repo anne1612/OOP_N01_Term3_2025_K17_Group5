@@ -133,41 +133,44 @@ Project/
   - Tạo, hiển thị và cập nhật thanh toán, cập nhật phương thức thanh toán, kiểm tra trạng thái thanh toán chưa hoàn tất.
 
 ---
+## Nội dung
+
 Xây dựng ứng dụng mua bán hàng trực tuyến Shopbee
 
 Yêu cầu:
 - Giao diện Java Spring Boot.
-- Có chức năng quản lý người dùng, sản phẩm, đơn hàng
+- Có chức năng quản lý người dùng, sản phẩm, đơn hàng và thanh toán.
 - Và các chức năng khác.
 
 Cụ thể: 
 - Có chức năng quản lí người dùng (user)
   + Thêm, sửa, xóa người dùng 
   + Liệt kê thông tin về người dùng, có thể lọc ra các người dùng theo 2 loại: khách hàng (customer), nhà cung cấp (seller)
+    
+- Có chức năng quản lý sản phẩm (product)
+  + Thêm, sửa, xóa sản phẩm
+  + Hiển thị thông tin sản phẩm
+  + Cập nhập số lượng sản phẩm
+  + Gán sản phẩm cho nhà cung cấp và đơn hàng
 
 - Có chức năng quản lý đơn hàng (order)
   + Thêm, sửa, xóa đơn hàng
   + Hiển thị thông tin đơn hàng
-  + Cập nhập thông tin đơn hàng
+  + Cập nhập trạng thái đơn hàng
   + Tính tổng số tiền
-  + Gán đơn hàng cho người dùng
+  + Gán đơn hàng cho khách hàng và thanh toán
   
-- Có chức năng quản lý sản phẩm (product)
-  + thêm sủa xóa sản phẩm
-  + hiển thị thông tin đơn hàng
-  + cập nhập thông tin sản phẩm
-  + tính tổng sản phẩm
-  + gán sản phẩm cho đơn hàng
-
-_ có chức năng quản lý thanh toán (payment)
+- Có chức năng quản lý thanh toán (payment)
   + Thực hiện thanh toán
   + Hiển thị thông tin thanh toán
   + Cập nhật phương thức thanh toán
   + Cập nhật trạng thái thanh toán
 
-+ Cần tạo các lớp liên quan đến ...[đối tượng 01], ....[đối tượng 02], và ....[đối tượng 03] để đọc, ghi xuống 1 hay nhiều file.
+- Dữ liệu được lưu trữ xuống file nhị phân
+  + Cần tạo các lớp liên quan đến người dùng, sản phẩm, đơn hàng và thanh toán để đọc, ghi xuống 1 hay nhiều file.
 
 - Khi làm việc với dữ liệu trong bộ nhớ, dữ liệu cần được lưu trữ dưới dạng các Collection tùy chọn như ArrayList, LinkedList, Map, ....
+## Class Diagram 
+image/Class Diagram Shopbee.png
 
-- Sinh viên có thể thêm các chức năng vào chương trình để ứng dụng phong phú hơn bằng cách thêm các nghiệp vụ cho bài toán (tùy chọn)
 
