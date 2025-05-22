@@ -177,3 +177,5 @@ Cụ thể:
 
 ![Image](images/Activity_login.png)
 
+#### 2. Mua hàng
+![images](BuyActivityDiagram.png)
