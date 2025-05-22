@@ -171,6 +171,5 @@ Cụ thể:
 
 - Khi làm việc với dữ liệu trong bộ nhớ, dữ liệu cần được lưu trữ dưới dạng các Collection tùy chọn như ArrayList, LinkedList, Map, ....
 ## Class Diagram 
-image/Class_Diagram_Shopbee.png
-![Image](https://github.com/user-attachments/assets/f227afd7-c884-4b95-8cd4-b3b9da1b6b7e)
+![Image](images/ClassDiagramShopbee.png)
 
