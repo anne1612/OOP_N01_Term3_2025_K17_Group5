@@ -1,15 +1,45 @@
+//import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TestProduct {
-  public static void main() {
-        // Tạo một sản phẩm mới
-        Product product1 = new Product(101, 5001, "Ao Hoodie", 250000, 100, "Ao hoodie mau den, chat lieu cotton.");
 
-        // Hiển thị thông tin sản phẩm
-        product1.displayProductInfo();
+    public static void test() {
+        // Tạo vài sản phẩm mẫu (sellerId để tạm 1, 2, 3)
+        Product p1 = new Product("P001", 1, "Laptop Dell", 12000000, 10, "Laptop chinh hang Dell");
+        Product p2 = new Product("P002", 2, "Tai nghe Sony", 2000000, 15, "Tai nghe chong on");
+        Product p3 = new Product("P003", 3, "Chuot Logitech", 500000, 30, "Chuot khong day Logitech");
 
-        // Cập nhật số lượng sản phẩm sau khi bán
-        product1.updateStock(20); // Giả sử bán được 20 chiếc
+        ProductList productList = new ProductList();
+        productList.addProduct(p1);
+        productList.addProduct(p2);
+        productList.addProduct(p3);
 
-        // Hiển thị lại thông tin sản phẩm sau khi cập nhật
-        product1.displayProductInfo();
+        System.out.println("== Danh sach san pham ban dau ==");
+        productList.printProductList();
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\n== Cap nhap ten san pham ==");
+        System.out.print("Nhap Product ID can sua: ");
+        String productId = sc.nextLine();
+
+        System.out.print("Nhap ten san pham moi: ");
+        String newName = sc.nextLine();
+
+        productList.getEditProduct(newName, productId);
+        productList.printProductList();
+
+        System.out.println("\n== Xoa san pham ==");
+        System.out.print("Nhap Product ID can xoa: ");
+        String delProductId = sc.nextLine();
+
+        productList.getDeleteProduct(delProductId);
+        productList.printProductList();
+
+        sc.close();
+    }
+
+    public static void main(String[] args) {
+        test();
     }
 }
