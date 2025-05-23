@@ -21,7 +21,7 @@ public class ProductList {
             }
         }
         if (!found) {
-            System.out.println("Không tìm thấy sản phẩm với ID: " + productId);
+            System.out.println("Khong tim thay san pham voi ID: " + productId);
         }
         return st;
     }

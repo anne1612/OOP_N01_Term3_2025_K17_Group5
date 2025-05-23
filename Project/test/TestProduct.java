@@ -14,26 +14,51 @@ public class TestProduct {
         productList.addProduct(p2);
         productList.addProduct(p3);
 
+        Scanner sc = new Scanner(System.in);
+
         System.out.println("== Danh sach san pham ban dau ==");
         productList.printProductList();
 
-        Scanner sc = new Scanner(System.in);
-
+        // === CẬP NHẬT TÊN SẢN PHẨM ===
         System.out.println("\n== Cap nhap ten san pham ==");
         System.out.print("Nhap Product ID can sua: ");
         String productId = sc.nextLine();
-
         System.out.print("Nhap ten san pham moi: ");
         String newName = sc.nextLine();
-
         productList.getEditProduct(newName, productId);
         productList.printProductList();
 
+        // === XÓA SẢN PHẨM ===
         System.out.println("\n== Xoa san pham ==");
         System.out.print("Nhap Product ID can xoa: ");
         String delProductId = sc.nextLine();
-
         productList.getDeleteProduct(delProductId);
+        productList.printProductList();
+
+        // === THÊM SẢN PHẨM MỚI ===
+        System.out.println("\n== Them san pham moi ==");
+        System.out.print("Nhap ma san pham: ");
+        String newId = sc.nextLine();
+
+        System.out.print("Nhap ma nguoi ban (int): ");
+        int sellerId = Integer.parseInt(sc.nextLine());
+
+        System.out.print("Nhap ten san pham: ");
+        String name = sc.nextLine();
+
+        System.out.print("Nhap gia san pham: ");
+        double price = Double.parseDouble(sc.nextLine());
+
+        System.out.print("Nhap so luong ton kho: ");
+        int stock = Integer.parseInt(sc.nextLine());
+
+        System.out.print("Nhap mo ta san pham: ");
+        String desc = sc.nextLine();
+
+        Product newProduct = new Product(newId, sellerId, name, price, stock, desc);
+        productList.addProduct(newProduct);
+
+        System.out.println("\n== Danh sach sau khi them ==");
         productList.printProductList();
 
         sc.close();
