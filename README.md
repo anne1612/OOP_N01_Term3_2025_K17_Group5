@@ -179,3 +179,6 @@ Cụ thể:
 
 #### 2. Mua hàng
 ![Image](images/BuyActivityDiagram.png)
+
+#### 3. Bán hàng
+![Image](images/SellActivityDiagram.png)
