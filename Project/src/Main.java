@@ -15,6 +15,9 @@ public class Main
 
         TestUser us = new TestUser();
         us.testEdit();
+
+        TestOrder testorder = new TestOrder();
+        testorder.testEdit();
         
     }
 }
