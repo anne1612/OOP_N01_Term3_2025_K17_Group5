@@ -33,6 +33,11 @@ public class User
     public String getAddress() { return address; }
     public String getPassword() { return password; }
     public String getUserType() { return userType; }
+    public void setName(String name)
+    {
+        this.name = name;
+
+    } 
     public void setUser(String userId, String name, String gender, String birthDate, String phoneNumber, 
                             String email, String address, String password, String userType) 
     { 
