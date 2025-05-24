@@ -12,5 +12,8 @@ public class Main
         TestOrder.main();
         TestPayment.main();
         TestTime.test();
+
+        TestUser us = new TestUser();
+        us.testEdit();
     }
 }
