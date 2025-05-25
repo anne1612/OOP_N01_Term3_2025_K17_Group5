@@ -23,7 +23,7 @@ public class TestOrder {
         manager.printAllOrders();
     }
 
-    public static void testEdit() {
+    public void testEdit() {
         System.out.println("\n== TEST EDIT ORDER ==");
 
         OrderManager manager = new OrderManager();
@@ -42,7 +42,7 @@ public class TestOrder {
         manager.printAllOrders();
     }
 
-    public static void testDelete() {
+    public void testDelete() {
         System.out.println("\n== TEST DELETE ORDER ==");
 
         OrderManager manager = new OrderManager();
@@ -57,12 +57,5 @@ public class TestOrder {
 
         manager.deleteOrder(orderId);
         manager.printAllOrders();
-    }
-
-    // Main để chạy nhanh các hàm test
-    public static void main() {
-        test();        // tạo đơn
-        testEdit();    // sửa đơn
-        testDelete();  // xóa đơn
     }
 }

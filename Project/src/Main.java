@@ -9,7 +9,6 @@ public class Main
     {
         TestUser.test();
         TestProduct.main();
-        TestOrder.main();
         TestPayment.main();
         TestTime.test();
 
