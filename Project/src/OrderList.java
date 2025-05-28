@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class OrderManager {
+public class OrderList {
 
     private final ArrayList<Order> orders = new ArrayList<>();
 

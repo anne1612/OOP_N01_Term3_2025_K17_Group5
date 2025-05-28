@@ -8,7 +8,7 @@ public class TestOrder {
     public static void test() {
         System.out.println("\n== TEST CREATE ORDER ==");
 
-        OrderManager manager = new OrderManager();
+        OrderList manager = new OrderList();
 
         // Tạo đơn hàng
         Order o1 = new Order("ORD001", "USER001", Arrays.asList(101, 102));
@@ -26,7 +26,7 @@ public class TestOrder {
     public void testEdit() {
         System.out.println("\n== TEST EDIT ORDER ==");
 
-        OrderManager manager = new OrderManager();
+        OrderList manager = new OrderList();
         Order o1 = new Order("ORD001", "USER001", Arrays.asList(101, 102));
         o1.setTotalAmount(5000000);
         manager.addOrder(o1);
@@ -45,7 +45,7 @@ public class TestOrder {
     public void testDelete() {
         System.out.println("\n== TEST DELETE ORDER ==");
 
-        OrderManager manager = new OrderManager();
+        OrderList manager = new OrderList();
         Order o1 = new Order("ORD001", "USER001", Arrays.asList(101, 102));
         Order o2 = new Order("ORD002", "USER002", Arrays.asList(103));
         manager.addOrder(o1);

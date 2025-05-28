@@ -60,8 +60,7 @@ public class TestProduct {
 
         System.out.println("\n== Danh sach sau khi them ==");
         productList.printProductList();
-
-        sc.close();
+        
     }
 
     public static void main(String[] args) {

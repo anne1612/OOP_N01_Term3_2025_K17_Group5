@@ -182,3 +182,20 @@ Cụ thể:
 
 #### 3. Bán hàng
 ![Image](images/SellActivityDiagram.png)
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="images/Add.png" height="520px"><br/>
+      <em>Thêm</em>
+    </td>
+    <td align="center" width="33%">
+      <img src="images/Edit.png" height="500px"><br/>
+      <em>Sửa</em>
+    </td>
+    <td align="center" width="33%">
+      <img src="images/Delete.png" height="500px"><br/>
+      <em>Xóa</em>
+    </td>
+  </tr>
+</table>
