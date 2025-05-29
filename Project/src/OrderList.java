@@ -6,40 +6,66 @@ public class OrderList {
 
     // CREATE
     public void addOrder(Order order) {
-        orders.add(order);
+        try {
+            if (order == null) {
+                throw new IllegalArgumentException("Đơn hàng không được null.");
+            }
+            orders.add(order);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi thêm đơn hàng: " + e.getMessage());
+        }
     }
 
     // READ
     public void printAllOrders() {
-        for (Order order : orders) {
-            order.displayOrderInfo();
-            System.out.println("---------------");
+        try {
+            if (orders.isEmpty()) {
+                System.out.println("Danh sách đơn hàng trống.");
+                return;
+            }
+
+            for (Order order : orders) {
+                order.displayOrderInfo();
+                System.out.println("---------------");
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi hiển thị danh sách đơn hàng: " + e.getMessage());
         }
     }
 
-    // UPDATE (đổi tên cho khớp với TestOrder)
+    // UPDATE
     public boolean editOrderStatus(String orderId, String newStatus) {
-        for (Order order : orders) {
-            if (order.getOrderId().equals(orderId)) {
-                order.updateStatus(newStatus); // đảm bảo class Order có hàm này
-                return true;
+        try {
+            for (Order order : orders) {
+                if (order.getOrderId().equals(orderId)) {
+                    order.updateStatus(newStatus);
+                    return true;
+                }
             }
+            System.out.println("Không tìm thấy đơn hàng với mã: " + orderId);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi cập nhật trạng thái đơn hàng: " + e.getMessage());
         }
         return false;
     }
 
     // DELETE
     public boolean deleteOrder(String orderId) {
-        for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).getOrderId().equals(orderId)) {
-                orders.remove(i);
-                return true;
+        try {
+            for (int i = 0; i < orders.size(); i++) {
+                if (orders.get(i).getOrderId().equals(orderId)) {
+                    orders.remove(i);
+                    return true;
+                }
             }
+            System.out.println("Không tìm thấy đơn hàng để xóa: " + orderId);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi xóa đơn hàng: " + e.getMessage());
         }
         return false;
     }
 
-    // (Optional) Getter để dùng trong Test nếu cần
+    // Optional getter
     public ArrayList<Order> getAllOrders() {
         return orders;
     }
