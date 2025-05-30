@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Product {
     private String productId;         // Mã sản phẩm (chuỗi)
     private int sellerId;             // Mã người bán (giữ int nếu muốn)
@@ -7,6 +9,8 @@ public class Product {
     private String description;       // Mô tả sản phẩm
 
     // Constructor
+    public Product(){}
+
     public Product(String productId, int sellerId, String productName, double price, int stock, String description) {
         this.productId = productId;
         this.sellerId = sellerId;
@@ -54,4 +58,27 @@ public class Product {
             System.out.println("So luong ban khong hop le. Khong du hang!");
         }
     }
+
+    public void productInput() {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Nhap ma san pham: ");
+    this.productId = sc.nextLine();
+
+    System.out.print("Nhap seller ID: ");
+    this.sellerId = Integer.parseInt(sc.nextLine());
+
+    System.out.print("Nhap ten san pham: ");
+    this.productName = sc.nextLine();
+
+    System.out.print("Nhap gia san pham: ");
+    this.price = Double.parseDouble(sc.nextLine());
+
+    System.out.print("Nhap so luong ton kho: ");
+    this.stock = Integer.parseInt(sc.nextLine());
+
+    System.out.print("Nhap mo ta san pham: ");
+    this.description = sc.nextLine();  
+    }
+
 }

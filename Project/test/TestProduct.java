@@ -1,4 +1,5 @@
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestProduct {
@@ -63,7 +64,17 @@ public class TestProduct {
         
     }
 
-    public static void main(String[] args) {
-        test();
+    public static void testProductInput() {
+        System.out.println("\n== Nhập thông tin sản phẩm ==");
+        ArrayList<Product> category = new ArrayList<Product>();
+        Product p1 = new Product();
+        p1.productInput();
+        category.add(p1);
+
+        ProductList productList = new ProductList();
+        productList.addProduct(p1);
+        System.out.println("\n== Danh sách sản phẩm ==");
+        productList.printProductList();
     }
+
 }

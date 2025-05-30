@@ -46,12 +46,13 @@ public class ProductList {
     // In danh sách sản phẩm
     public void printProductList() {
         System.out.println("Danh sach san pham:");
-        for (Product p : st) {
-            System.out.println("Product ID: " + p.getProductId() + 
-                               " | Name: " + p.getProductName() +
-                               " | Price: " + p.getPrice() +
-                               " | Stock: " + p.getStock() +
-                               " | Description: " + p.getDescription());
+        int len = st.size();
+        for (int i = 0; i < len; i++) {
+            System.out.println("Product ID: " + st.get(i).getProductId() + 
+                               " | Name: " + st.get(i).getProductName() +
+                               " | Price: " + st.get(i).getPrice() +
+                               " | Stock: " + st.get(i).getStock() +
+                               " | Description: " + st.get(i).getDescription());
         }
     }
 }
