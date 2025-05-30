@@ -11,32 +11,58 @@ public class Order {
 
     // Constructor
     public Order(String orderId, String userId, List<Integer> productIds) {
-        this.orderId = orderId;
-        this.userId = userId;
-        this.productIds = productIds;
-        this.orderDate = LocalDate.now();
-        this.status = "Chờ xác nhận";
-        this.totalAmount = 0;
+        try {
+            this.orderId = orderId;
+            this.userId = userId;
+            if (productIds == null || productIds.isEmpty()) {
+                throw new IllegalArgumentException("Danh sách sản phẩm không được rỗng.");
+            }
+            this.productIds = productIds;
+            this.orderDate = LocalDate.now();
+            this.status = "Chờ xác nhận";
+            this.totalAmount = 0;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Lỗi khi khởi tạo đơn hàng: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Lỗi không xác định khi tạo đơn hàng: " + e.getMessage());
+        }
     }
 
     // Set tổng tiền
     public void setTotalAmount(double amount) {
-        this.totalAmount = amount;
+        try {
+            if (amount < 0) {
+                throw new IllegalArgumentException("Tổng tiền không được âm.");
+            }
+            this.totalAmount = amount;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Lỗi: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Lỗi không xác định khi cập nhật tổng tiền: " + e.getMessage());
+        }
     }
 
     // Cập nhật trạng thái
     public void updateStatus(String newStatus) {
-        this.status = newStatus;
+        try {
+            this.status = newStatus;
+        } catch (Exception e) {
+            System.out.println("Lỗi khi cập nhật trạng thái: " + e.getMessage());
+        }
     }
 
     // Hiển thị thông tin đơn hàng
     public void displayOrderInfo() {
-        System.out.println("Mã đơn hàng: " + orderId);
-        System.out.println("Mã người dùng: " + userId);
-        System.out.println("Danh sách mã sản phẩm: " + productIds);
-        System.out.println("Tổng tiền: " + totalAmount + " VND");
-        System.out.println("Ngày đặt hàng: " + orderDate);
-        System.out.println("Trạng thái: " + status);
+        try {
+            System.out.println("Mã đơn hàng: " + orderId);
+            System.out.println("Mã người dùng: " + userId);
+            System.out.println("Danh sách mã sản phẩm: " + productIds);
+            System.out.println("Tổng tiền: " + totalAmount + " VND");
+            System.out.println("Ngày đặt hàng: " + orderDate);
+            System.out.println("Trạng thái: " + status);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi hiển thị đơn hàng: " + e.getMessage());
+        }
     }
 
     // Getter cho orderId
@@ -44,28 +70,11 @@ public class Order {
         return orderId;
     }
 
-    // Getter cho userId
     public String getUserId() {
         return userId;
     }
 
-    // Getter cho status
     public String getStatus() {
         return status;
-    }
-
-    // Getter cho productIds
-    public List<Integer> getProductIds() {
-        return productIds;
-    }
-
-    // Getter cho tổng tiền
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    // Getter cho ngày đặt hàng
-    public LocalDate getOrderDate() {
-        return orderDate;
     }
 }
