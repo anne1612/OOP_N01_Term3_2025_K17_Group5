@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class OrderList {
 
@@ -69,4 +72,66 @@ public class OrderList {
     public ArrayList<Order> getAllOrders() {
         return orders;
     }
+    
+    public void taoDonHangMoi(String userId, ProductList productList, Scanner sc) {
+    try {
+        List<Integer> selectedProductCodes = new ArrayList<>();
+        double total = 0;
+
+        ArrayList<Product> list = productList.st; // hoặc productList.getAll();
+        if (list.isEmpty()) {
+            System.out.println("⚠️ Không có sản phẩm nào.");
+            return;
+        }
+
+        while (true) {
+            System.out.println("\n📦 Danh sách sản phẩm:");
+            for (int i = 0; i < list.size(); i++) {
+                Product p = list.get(i);
+                System.out.println((i + 1) + ". " + p.getProductName() + " - " + p.getPrice() + " VND (Còn: " + p.getStock() + ")");
+            }
+
+            System.out.print("Chọn số thứ tự sản phẩm muốn mua (0 để kết thúc): ");
+            int index = Integer.parseInt(sc.nextLine()) - 1;
+            if (index == -1) break;
+
+            if (index < 0 || index >= list.size()) {
+                System.out.println("❌ Số thứ tự không hợp lệ.");
+                continue;
+            }
+
+            Product sp = list.get(index);
+
+            System.out.print("Nhập số lượng: ");
+            int qty = Integer.parseInt(sc.nextLine().trim());
+            if (qty <= 0 || qty > sp.getStock()) {
+                System.out.println("❌ Số lượng không hợp lệ.");
+                continue;
+            }
+
+            sp.updateStock(qty); // trừ hàng
+            for (int i = 0; i < qty; i++) {
+                selectedProductCodes.add(Integer.parseInt(sp.getProductId())); // giả sử productId là số
+            }
+            total += sp.getPrice() * qty;
+        }
+
+        if (selectedProductCodes.isEmpty()) {
+            System.out.println("⚠️ Bạn chưa chọn sản phẩm nào.");
+            return;
+        }
+
+        String orderId = "ORD" + (new Random().nextInt(900) + 100);
+        Order newOrder = new Order(orderId, userId, selectedProductCodes);
+        newOrder.setTotalAmount(total);
+        addOrder(newOrder);
+
+        System.out.println("✅ Đơn hàng đã được tạo:");
+        newOrder.displayOrderInfo();
+    } catch (Exception e) {
+        System.out.println("Lỗi khi tạo đơn hàng: " + e.getMessage());
+    }
 }
+
+}
+
