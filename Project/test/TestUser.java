@@ -86,4 +86,20 @@ public class TestUser
         userList.printUserList();
 
     }
+
+    public static void testRegisterUser()
+    {
+        System.out.println("\n\n\n== Dang ki ==");
+
+        ArrayList<User> sl = new ArrayList<User>();
+        User s1 = new User();
+        s1.registerUser();
+        sl.add(s1);
+
+        UserList userList = new UserList();
+        userList.addUser(s1);
+        System.out.println("\n== Danh sách người dùng ==");
+        userList.printUserList();
+
+    }
 }
