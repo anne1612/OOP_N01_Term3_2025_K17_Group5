@@ -3,11 +3,13 @@ import TestProduct;
 import TestOrder;
 import TestPayment;*/
 
+import java.util.ArrayList;
+
 public class Main 
 {
     public static void main(String[] args) /*throws Exception*/ 
     {
-        TestUser.test();
+        /*TestUser.test();
 
         TestProduct.main(new String[0]);
         
@@ -18,7 +20,10 @@ public class Main
         us.testEdit();
 
         TestOrder testorder = new TestOrder();
-        testorder.testEdit();
+        testorder.testEdit();*/
         
+        TestUser.testRegisterUser();
+
+
     }
 }

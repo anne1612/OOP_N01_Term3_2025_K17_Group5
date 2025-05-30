@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class User 
 {
     private String userId; //private -> tính đóng gói 
@@ -9,6 +11,8 @@ public class User
     private String address;
     private String password;
     private String userType;
+
+    public User(){}
 
     public User(String userId, String name, String gender, String birthDate, String phoneNumber, 
             String email, String address, String password, String userType)
@@ -67,5 +71,37 @@ public class User
         System.out.println("Email: " + email);
         System.out.println("Địa chỉ: " + address);
         System.out.println("Loại người dùng: " + userType);
+    }
+
+     public void registerUser() 
+     {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhập mã người dùng: ");
+        userId = sc.nextLine();
+
+        System.out.print("Nhập tên: ");
+        name = sc.nextLine();
+
+        System.out.print("Nhập giới tính: ");
+        gender = sc.nextLine();
+
+        System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
+        birthDate = sc.nextLine();
+
+        System.out.print("Nhập số điện thoại: ");
+        phoneNumber = sc.nextLine();
+
+        System.out.print("Nhập email: ");
+        email = sc.nextLine();
+
+        System.out.print("Nhập địa chỉ: ");
+        address = sc.nextLine();
+
+        System.out.print("Nhập mật khẩu: ");
+        password = sc.nextLine();
+
+        System.out.print("Nhập loại người dùng: ");
+        userType = sc.nextLine();
     }
 }

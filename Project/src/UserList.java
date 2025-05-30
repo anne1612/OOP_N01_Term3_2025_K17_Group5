@@ -45,10 +45,18 @@ public class UserList {
     public void printUserList() {
         int len = st.size();
 
-        for (int i = 0; i < len; i++) {
-            System.out.println("User ID: " + st.get(i).getUserId() + " Fullname: " + st.get(i).getName());
-
+        for (int i = 0; i < len; i++) 
+        {
+            System.out.println("User ID: " + st.get(i).getUserId());
+            System.out.println("Fullname: " + st.get(i).getName());
+            System.out.println("Gender: " + st.get(i).getGender());
+            System.out.println("Birth Date: " + st.get(i).getBirthDate());
+            System.out.println("Phone Number: " + st.get(i).getPhoneNumber());
+            System.out.println("Email: " + st.get(i).getEmail());
+            System.out.println("Address: " + st.get(i).getAddress());
+            System.out.println("Password: " + st.get(i).getPassword());
+            System.out.println("User Type: " + st.get(i).getUserType());
+            System.out.println("-----------------------------");
         }
-
     }
 }
