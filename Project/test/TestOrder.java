@@ -74,53 +74,13 @@ public class TestOrder {
         }
     }
 
-    // TEST TẠO ĐƠN HÀNG MỚI
-    public static void testTaoDonHang(Scanner sc) {
-        // Khởi tạo danh sách sản phẩm mẫu
+
+    public static void testOrderFromInput(Scanner sc) {
         ProductList plist = new ProductList();
         plist.addProduct(new Product("101", 1, "Laptop", 10000000, 10, "Máy tính xách tay"));
         plist.addProduct(new Product("102", 2, "Chuột", 200000, 5, "Chuột không dây"));
 
-        System.out.print("Nhập mã người dùng: ");
-        String userId = sc.nextLine().trim();
-
-        // Gọi phương thức tạo đơn hàng mới từ manager (OrderList)
-        manager.taoDonHangMoi(userId, plist, sc);
+        manager.createOrderFromInput(plist);
     }
 
-    // MAIN
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("\n=== MENU TEST ORDER ===");
-            System.out.println("1. Tạo đơn hàng mẫu");
-            System.out.println("2. Sửa trạng thái đơn hàng");
-            System.out.println("3. Xóa đơn hàng");
-            System.out.println("4. Tạo đơn hàng mới (chọn theo STT)");
-            System.out.println("0. Thoát");
-            System.out.print("Chọn chức năng: ");
-            String choice = sc.nextLine().trim();
-
-            switch (choice) {
-                case "1":
-                    test();
-                    break;
-                case "2":
-                    testEdit(sc);
-                    break;
-                case "3":
-                    testDelete(sc);
-                    break;
-                case "4":
-                    testTaoDonHang(sc);
-                    break;
-                case "0":
-                    System.out.println("👋 Kết thúc chương trình.");
-                    return;
-                default:
-                    System.out.println("⚠️ Vui lòng chọn lại.");
-            }
-        }
-    }
 }
