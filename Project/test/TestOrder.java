@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class TestOrder {
     private static OrderList manager = new OrderList();
 
-    // Khởi tạo dữ liệu mẫu
     private static void initSampleOrders() {
         manager = new OrderList(); // reset lại
         Order o1 = new Order("ORD001", "USER001", Arrays.asList(101, 102));
@@ -16,7 +15,6 @@ public class TestOrder {
         manager.addOrder(o2);
     }
 
-    // TEST CREATE
     public static void test() {
         System.out.println("\n== TEST CREATE ORDER ==");
 
@@ -28,7 +26,6 @@ public class TestOrder {
         }
     }
 
-    // TEST EDIT
     public static void testEdit(Scanner sc) {
         System.out.println("\n== TEST EDIT ORDER ==");
         try {
@@ -41,9 +38,9 @@ public class TestOrder {
             String newStatus = sc.nextLine().trim();
 
             if (manager.editOrderStatus(orderId, newStatus)) {
-                System.out.println("✅ Đã cập nhật trạng thái đơn hàng thành công.");
+                System.out.println(" Đã cập nhật trạng thái đơn hàng thành công.");
             } else {
-                System.out.println("❌ Không tìm thấy đơn hàng với ID: " + orderId);
+                System.out.println("Không tìm thấy đơn hàng với ID: " + orderId);
             }
 
             manager.printAllOrders();
@@ -52,7 +49,6 @@ public class TestOrder {
         }
     }
 
-    // TEST DELETE
     public static void testDelete(Scanner sc) {
         System.out.println("\n== TEST DELETE ORDER ==");
 

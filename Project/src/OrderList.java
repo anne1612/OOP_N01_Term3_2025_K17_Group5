@@ -7,7 +7,6 @@ public class OrderList {
 
     private final ArrayList<Order> orders = new ArrayList<>();
 
-    // CREATE
     public void addOrder(Order order) {
         try {
             if (order == null) {
@@ -19,7 +18,6 @@ public class OrderList {
         }
     }
 
-    // READ
     public void printAllOrders() {
         try {
             if (orders.isEmpty()) {
@@ -36,7 +34,6 @@ public class OrderList {
         }
     }
 
-    // UPDATE
     public boolean editOrderStatus(String orderId, String newStatus) {
         try {
             for (Order order : orders) {
@@ -52,7 +49,7 @@ public class OrderList {
         return false;
     }
 
-    // DELETE
+
     public boolean deleteOrder(String orderId) {
         try {
             for (int i = 0; i < orders.size(); i++) {
@@ -68,7 +65,6 @@ public class OrderList {
         return false;
     }
 
-    // Optional getter
     public ArrayList<Order> getAllOrders() {
         return orders;
     }

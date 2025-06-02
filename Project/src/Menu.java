@@ -10,7 +10,7 @@ public class Menu {
             System.out.println("2. Nhập sản phẩm mới");
             System.out.println("3. Tạo đơn hàng mới (nhập tay)");
             System.out.println("0. Thoát");
-            System.out.print("👉 Chọn chức năng: ");
+            System.out.print("Chọn chức năng: ");
             String choice = sc.nextLine().trim();
 
             switch (choice) {

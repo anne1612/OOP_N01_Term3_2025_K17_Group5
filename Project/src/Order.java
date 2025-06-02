@@ -9,7 +9,6 @@ public class Order {
     private LocalDate orderDate;
     private String status;
 
-    // Constructor
     public Order(String orderId, String userId, List<Integer> productIds) {
         try {
             this.orderId = orderId;
@@ -28,7 +27,6 @@ public class Order {
         }
     }
 
-    // Set tổng tiền
     public void setTotalAmount(double amount) {
         try {
             if (amount < 0) {
@@ -42,7 +40,6 @@ public class Order {
         }
     }
 
-    // Cập nhật trạng thái
     public void updateStatus(String newStatus) {
         try {
             this.status = newStatus;
@@ -51,7 +48,6 @@ public class Order {
         }
     }
 
-    // Hiển thị thông tin đơn hàng
     public void displayOrderInfo() {
         try {
             System.out.println("Mã đơn hàng: " + orderId);
@@ -65,7 +61,6 @@ public class Order {
         }
     }
 
-    // Getter cho orderId
     public String getOrderId() {
         return orderId;
     }
