@@ -89,7 +89,7 @@ public class TestUser
 
     public static void testRegisterUser()
     {
-        System.out.println("\n\n\n== Dang ki ==");
+        System.out.println("\n== Dang ki ==");
 
         ArrayList<User> sl = new ArrayList<User>();
         User s1 = new User();

@@ -3,8 +3,6 @@ import TestProduct;
 import TestOrder;
 import TestPayment;*/
 
-import java.util.ArrayList;
-
 
 public class Main {
     public static void main(String[] args){
@@ -20,6 +18,7 @@ public class Main {
         TestProduct.testProductInput();
         TestOrder.testOrderFromInput(null);
         */
-        Menu.showMenu();
+        //Menu.showMenu();
+        TestSequence.test();
     }
 }

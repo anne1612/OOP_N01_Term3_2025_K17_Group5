@@ -5,7 +5,7 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n========= MENU CHÍNH =========");
+            System.out.println("\n========= MENU =========");
             System.out.println("1. Đăng ký người dùng mới");
             System.out.println("2. Nhập sản phẩm mới");
             System.out.println("3. Tạo đơn hàng mới (nhập tay)");
