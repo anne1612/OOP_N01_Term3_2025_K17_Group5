@@ -204,6 +204,7 @@ Cụ thể:
  thông báo danh sách đơn hàng đã thanh toán bởi khách hàng cụ thể
 
 Lưu đồ thuật toán
+
 ![Image](images/An.png)
 
 ## Phân công công việc
