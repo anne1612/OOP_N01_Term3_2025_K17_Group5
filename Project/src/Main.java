@@ -18,7 +18,7 @@ public class Main {
         TestProduct.testProductInput();
         TestOrder.testOrderFromInput(null);
         */
-        Menu.showMenu();
+        //Menu.showMenu();
         //TestSequence.test();
     }
 }

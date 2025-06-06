@@ -11,7 +11,19 @@ public class ListCustomerOrder {
 
     }
 
-    public void displayList() {
+    public void displayList() 
+    {
+        for (int i = 0; i < co.size(); i++) 
+        {
+
+            System.out.println("User ID: " + co.get(i).userId);
+            System.out.println("Order ID: " + co.get(i).orderId);
+
+        }
+    }
+
+    public static void displayList(List<CustomerOrder> co) 
+    {
         for (int i = 0; i < co.size(); i++) {
 
             System.out.println("User ID: " + co.get(i).userId);
@@ -20,16 +32,8 @@ public class ListCustomerOrder {
         }
     }
 
-    public static void displayList(List<CustomerOrder> co) {
-        for (int i = 0; i < co.size(); i++) {
-
-            System.out.println("User ID: " + co.get(i).userId);
-            System.out.println("Order ID: " + co.get(i).orderId);
-
-        }
-    }
-
-    public void shortList() {
+    public void shortList() 
+    {
 
         List<CustomerOrder> list = co.subList(0, 2);
 
@@ -37,7 +41,8 @@ public class ListCustomerOrder {
 
     }
 
-    public ArrayList<CustomerOrder> filterCustomerOrderTradition(String keyword) {
+    public ArrayList<CustomerOrder> filterCustomerOrderTradition(String keyword) 
+    {
         ArrayList<CustomerOrder> newList = new ArrayList<CustomerOrder>();
 
         for (CustomerOrder c : co) {
@@ -50,14 +55,16 @@ public class ListCustomerOrder {
 
     }
 
-    public void checkPaidOrders() {
-        for (CustomerOrder order : co) {
-            if (order.isPaid) {
-                System.out.println(" Đơn hàng đã thanh toán:");
-                System.out.println("User ID: " + order.userId);
-                System.out.println("Order ID: " + order.orderId);
-            }
+   public ArrayList<CustomerOrder> getPaidOrdersByUser(String userId) 
+   {
+    ArrayList<CustomerOrder> result = new ArrayList<>();
+
+    for (CustomerOrder c : co) {
+        if (c.userId.equals(userId) && c.isPaid) {
+            result.add(c);
         }
     }
 
+    return result;
+}
 }
