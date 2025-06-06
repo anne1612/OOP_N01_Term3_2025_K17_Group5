@@ -24,10 +24,10 @@ public class Menu {
                     TestOrder.testOrderFromInput(sc);
                     break;
                 case "0":
-                    System.out.println("👋 Thoát chương trình. Tạm biệt!");
+                    System.out.println(" Thoát chương trình. Tạm biệt!");
                     return;
                 default:
-                    System.out.println("⚠️ Vui lòng chọn đúng từ 0 đến 3.");
+                    System.out.println(" Vui lòng chọn đúng từ 0 đến 3.");
             }
         }
     }

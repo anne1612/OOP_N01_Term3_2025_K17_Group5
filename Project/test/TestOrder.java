@@ -59,9 +59,9 @@ public class TestOrder {
             String orderId = sc.nextLine().trim();
 
             if (manager.deleteOrder(orderId)) {
-                System.out.println("✅ Đã xóa đơn hàng thành công.");
+                System.out.println(" Đã xóa đơn hàng thành công.");
             } else {
-                System.out.println("❌ Không tìm thấy đơn hàng với ID: " + orderId);
+                System.out.println(" Không tìm thấy đơn hàng với ID: " + orderId);
             }
 
             manager.printAllOrders();

@@ -85,7 +85,7 @@ public class OrderList {
 
         ArrayList<Product> products = productList.st; // hoặc productList.getAll()
         if (products.isEmpty()) {
-            System.out.println("⚠️ Danh sách sản phẩm trống.");
+            System.out.println(" Danh sách sản phẩm trống.");
             return;
         }
 
@@ -101,7 +101,7 @@ public class OrderList {
             if (index == -1) break;
 
             if (index < 0 || index >= products.size()) {
-                System.out.println("❌ Lựa chọn không hợp lệ.");
+                System.out.println(" Lựa chọn không hợp lệ.");
                 continue;
             }
 
@@ -111,7 +111,7 @@ public class OrderList {
             int qty = Integer.parseInt(sc.nextLine());
 
             if (qty <= 0 || qty > selected.getStock()) {
-                System.out.println("❌ Số lượng không hợp lệ hoặc không đủ hàng.");
+                System.out.println(" Số lượng không hợp lệ hoặc không đủ hàng.");
                 continue;
             }
 
@@ -123,7 +123,7 @@ public class OrderList {
         }
 
         if (productCodes.isEmpty()) {
-            System.out.println("⚠️ Bạn chưa chọn sản phẩm nào.");
+            System.out.println(" Bạn chưa chọn sản phẩm nào.");
             return;
         }
 
@@ -131,11 +131,11 @@ public class OrderList {
         newOrder.setTotalAmount(total);
         this.addOrder(newOrder);
 
-        System.out.println("✅ Đơn hàng đã được tạo thành công:");
+        System.out.println(" Đơn hàng đã được tạo thành công:");
         newOrder.displayOrderInfo();
 
     } catch (Exception e) {
-        System.out.println("❌ Lỗi khi tạo đơn hàng: " + e.getMessage());
+        System.out.println(" Lỗi khi tạo đơn hàng: " + e.getMessage());
     }
 }
 
