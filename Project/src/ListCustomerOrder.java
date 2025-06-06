@@ -3,16 +3,13 @@ import java.util.*;
 public class ListCustomerOrder {
     ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
 
-
     public ArrayList<CustomerOrder> addObject(CustomerOrder c) {
-
 
         co.add(c);
 
         return co;
 
     }
-
 
     public void displayList() {
         for (int i = 0; i < co.size(); i++) {
@@ -34,11 +31,9 @@ public class ListCustomerOrder {
 
     public void shortList() {
 
-
         List<CustomerOrder> list = co.subList(0, 2);
 
         ListCustomerOrder.displayList(list);
-
 
     }
 
@@ -54,4 +49,15 @@ public class ListCustomerOrder {
         return newList;
 
     }
+
+    public void checkPaidOrders() {
+        for (CustomerOrder order : co) {
+            if (order.isPaid) {
+                System.out.println(" Đơn hàng đã thanh toán:");
+                System.out.println("User ID: " + order.userId);
+                System.out.println("Order ID: " + order.orderId);
+            }
+        }
+    }
+
 }
