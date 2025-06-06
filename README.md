@@ -200,5 +200,18 @@ Cụ thể:
   </tr>
 </table>
 
+## Chức năng chính
+ thông báo danh sách đơn hàng đã thanh toán bởi khách hàng cụ thể
+
+Lưu đồ thuật toán
 ![Image](images/An.png)
+
+## Phân công công việc
+
+| Thành viên |              Nhiệm vụ              |
+|------------|------------------------------------|
+| An         |In danh sách đơn hàng của khách hàng| 
+| Nhi        |kiểm thử chức năng tổng thể         |
+| Phát       | kiểm tra đơn hàng đã thanh toán    |
+
 
