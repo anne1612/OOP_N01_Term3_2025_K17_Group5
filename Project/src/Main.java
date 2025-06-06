@@ -20,5 +20,6 @@ public class Main {
         */
         //Menu.showMenu();
         //TestSequence.test();
+        TestCustomerOrder.test();
     }
 }
