@@ -2,7 +2,7 @@ public class TestSequence
 {
     public static void test() 
     {
-        Sequence s = new Sequence(15);
+        Sequence s = new Sequence(20);
         for (int i = 0; i < 20; i++)
         s.add(Integer.toString(i));
         //selector is interface
