@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserList {
 
@@ -59,4 +60,27 @@ public class UserList {
             System.out.println("-----------------------------");
         }
     }
+
+    public static void displayList(List<User> co) {
+        for (int i = 0; i < co.size(); i++) {
+
+            System.out.println("userName: " + co.get(i).getName());
+
+        }
+    }
+
+    //cach viet truyen thong
+    public ArrayList<User> searchUserNameTradition(String userId) {
+        ArrayList<User> newList = new ArrayList<User>();
+        for (User stu : st) {
+            if (stu.getUserId().contains(userId)) {
+                newList.add(stu);
+
+            }
+        }
+
+        return newList;
+
+    }
+
 }

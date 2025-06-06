@@ -5,5 +5,8 @@
         "review"
     ],
     "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": []
+    "java.project.referencedLibraries": [],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
 }
