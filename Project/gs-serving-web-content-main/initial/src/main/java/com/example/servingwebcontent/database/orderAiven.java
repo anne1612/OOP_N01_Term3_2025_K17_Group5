@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.Arrays;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -21,10 +24,21 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 public class orderAiven {
 
-    ArrayList<Order> items = new ArrayList<Order>(); 
-  
+    public orderAiven(){}
 
-    /**
+    /*
+     * to do
+     * mapping database data to Model Song
+     */
+    
+    ArrayList<Order> items = new ArrayList<Order>(); 
+    @Value("${app.database.url}")
+    private String urlString;
+
+    @Value("${app.database.driver}")
+    private String appDriver;
+
+      /**
      * @return
      */
     public ArrayList<Order> orderAivenList() {
