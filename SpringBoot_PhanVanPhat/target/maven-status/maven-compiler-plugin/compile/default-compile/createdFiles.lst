@@ -1,3 +1,5 @@
+com\example\order_check\controller\ProductController.class
+com\example\order_check\model\Product.class
 com\example\order_check\model\CustomerOrder.class
 com\example\order_check\OrderCheckApplication.class
 com\example\order_check\controller\OrderController.class
