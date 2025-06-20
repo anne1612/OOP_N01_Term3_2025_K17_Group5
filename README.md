@@ -215,4 +215,9 @@ Lưu đồ thuật toán
 | Nhi        |kiểm thử chức năng tổng thể         |
 | Phát       | kiểm tra đơn hàng đã thanh toán    |
 
+👥 Phân công công việc (Yêu cầu số 5 & 7)
+Thành viên	Chức năng đảm nhiệm	Vai trò trong MVC	Đường dẫn UI
+An	In danh sách đơn hàng của khách hàng	
+Phát	In danh sách đơn hàng đã thanh toán	
+Nhi	Quản lý sản phẩm	
 
