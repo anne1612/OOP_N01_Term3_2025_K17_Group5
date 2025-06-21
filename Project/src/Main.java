@@ -21,5 +21,16 @@ public class Main {
         //Menu.showMenu();
         //TestSequence.test();
         TestCustomerOrder.test();
+        AnExceptionThrower t = new AnExceptionThrower();
+        try {
+        t.f();
+        }
+        catch (AnException e) {
+        e.printStackTrace();
+        }
+        finally {
+        System.out.println("Done");
+        }
+
     }
 }
