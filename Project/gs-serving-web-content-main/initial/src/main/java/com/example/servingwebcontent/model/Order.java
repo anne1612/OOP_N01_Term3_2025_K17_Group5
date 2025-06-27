@@ -3,24 +3,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Order {
-    private String orderId;
-    private String userId;
-    private List<Integer> productIds;
-    private double totalAmount;
+    private String orderID;
     private LocalDate orderDate;
     private String status;
 
-    public Order(String orderId, String userId, List<Integer> productIds) {
+    public Order(String orderID) {
         try {
-            this.orderId = orderId;
-            this.userId = userId;
-            if (productIds == null || productIds.isEmpty()) {
-                throw new IllegalArgumentException("Danh sách sản phẩm không được rỗng.");
-            }
-            this.productIds = productIds;
+            this.orderID = orderID;
             this.orderDate = LocalDate.now();
-            this.status = "Chờ xác nhận";
-            this.totalAmount = 0;
+            this.status = "Pending";
         } catch (IllegalArgumentException e) {
             System.out.println("Lỗi khi khởi tạo đơn hàng: " + e.getMessage());
         } catch (Exception e) {
@@ -30,7 +21,7 @@ public class Order {
 
     public Order() {}
 
-    public void setTotalAmount(double amount) {
+    /*public void setTotalAmount(double amount) {
         try {
             if (amount < 0) {
                 throw new IllegalArgumentException("Tổng tiền không được âm.");
@@ -41,27 +32,41 @@ public class Order {
         } catch (Exception e) {
             System.out.println("Lỗi không xác định khi cập nhật tổng tiền: " + e.getMessage());
         }
+    }*/
+
+
+       // Getter cho orderID
+    public String getOrderID() {
+        return orderID;
     }
 
- public void setOrderId(String orderId){
-        this.orderId = orderId;
-
+    // Setter cho orderID
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
-    public void setUserId(String userId){
-        this.userId = userId;
 
+    // Getter cho orderDate
+    public LocalDate getOrderDate() {
+        return orderDate;
     }
-    public void setStatus(String status){
-        this.status = status;
 
-    }
-    
-    public void setOrderDate(LocalDate orderDate){
+    // Setter cho orderDate
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
-
     }
 
-    public void setProductIds(List<Integer> productIds) {
+    // Getter cho status
+    public String getStatus() {
+        return status;
+    }
+
+    // Setter cho status
+    public void setStatus(String status) {
+        this.status = status;
+    }
+ 
+
+    /*public void setProductIds(List<Integer> productIds) {
     try {
         if (productIds == null || productIds.isEmpty()) {
             throw new IllegalArgumentException("Danh sách sản phẩm không được để trống.");
@@ -72,7 +77,7 @@ public class Order {
     } catch (Exception e) {
         System.out.println("Lỗi không xác định khi cập nhật danh sách sản phẩm: " + e.getMessage());
     }
-}
+    }*/
 
 
     public void updateStatus(String newStatus) {
@@ -85,27 +90,15 @@ public class Order {
 
     public void displayOrderInfo() {
         try {
-            System.out.println("Mã đơn hàng: " + orderId);
-            System.out.println("Mã người dùng: " + userId);
-            System.out.println("Danh sách mã sản phẩm: " + productIds);
-            System.out.println("Tổng tiền: " + totalAmount + " VND");
+            System.out.println("Mã đơn hàng: " + orderID);
+            //System.out.println("Mã người dùng: " + userId);
+            //System.out.println("Danh sách mã sản phẩm: " + productIds);
+            //System.out.println("Tổng tiền: " + totalAmount + " VND");
             System.out.println("Ngày đặt hàng: " + orderDate);
             System.out.println("Trạng thái: " + status);
         } catch (Exception e) {
             System.out.println("Lỗi khi hiển thị đơn hàng: " + e.getMessage());
         }
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
 

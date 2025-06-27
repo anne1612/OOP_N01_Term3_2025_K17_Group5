@@ -8,13 +8,38 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center text-primary">Tra cứu đơn hàng</h2>
-        <form class="text-center" action="/orderlist" method="get">
+        <form class="text-center" action="/ordersearch">
             <div class="mb-3">
                 <label for="userId" class="form-label">Nhập User ID:</label>
                 <input type="text" class="form-control" id="userId" name="userId" placeholder="Nhập mã người dùng" required>
             </div>
             <button type="submit" class="btn btn-success">Xem đơn hàng</button>
         </form>
+        
+        <!-- Hiển thị thông báo nếu không có đơn hàng -->
+        <div th:if="${message}" class="alert alert-warning mt-3">
+            <p th:text="${message}"></p>
+        </div>
+
+        <!-- Hiển thị danh sách đơn hàng -->
+        <div th:if="${orderSearch}">
+            <table class="table table-bordered mt-4">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="orderSearch : ${orderSearch}">
+                        <td th:text="${orderSearch.orderID}"></td>
+                        <td th:text="${orderSearch.orderDate}"></td>
+                        <td th:text="${orderSearch.status}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

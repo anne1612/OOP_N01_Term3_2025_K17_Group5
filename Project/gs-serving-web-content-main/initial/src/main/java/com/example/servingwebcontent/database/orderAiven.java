@@ -3,6 +3,7 @@ package com.example.servingwebcontent.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -19,13 +20,6 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 
 public class orderAiven {
-
-    public orderAiven(){}
-
-    /*
-     * to do
-     * mapping database data to Model Order
-     */
 
     ArrayList<Order> items = new ArrayList<Order>(); 
   
@@ -44,7 +38,7 @@ public class orderAiven {
                     "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
             Statement sta = conn.createStatement();
 
-            ResultSet setdata = sta.executeQuery("select * from order limit 10");
+            ResultSet setdata = sta.executeQuery("select * from Orders");
             int index =0;
             int columnCount = setdata.getMetaData().getColumnCount();
              System.out.println("column #"+columnCount);
@@ -64,14 +58,15 @@ public class orderAiven {
                 System.out.println("Order AIVEN TEST:");
                 System.out.println(orderID + " " + sqlDate + " " + status);
 
-                order.setOrderId(orderID);
-                if (sqlDate != null) {
+                order.setOrderID(orderID);
+               /*  if (sqlDate != null) {
                     order.setOrderDate(sqlDate.toLocalDate());
-                }
+                }*/
+                order.setOrderDate(sqlDate.toLocalDate());
                 order.setStatus(status);
                 
                 System.out.println("Get Order in order Aiven");
-                System.out.println(order.getOrderId());
+                System.out.println(order.getOrderID());
                 System.out.println(index);
                 
 
@@ -105,34 +100,25 @@ public class orderAiven {
                     "jdbc:mysql://avnadmin:AVNS_PYuUDx9qsw8CL6Op5Ip@mysql-2fdea058-project-shopbee.l.aivencloud.com:15443/defaultdb?ssl-mode=REQUIRED",
                     "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
 
-            Statement sta = conn.createStatement();
-            String query = "SELECT * FROM `order` WHERE userId = '" + userId + "'";
+            String query = "SELECT o.orderID, o.orderDate, o.status FROM Orders" + 
+                           "FROM Orders o" +
+                           "JOIN UserOrders uo ON o.orderID = uo.orderID" +
+                           "JOIN Users u ON uo.userId = u.userId" +
+                           "WHERE u.userId = ?"; 
 
-            ResultSet setdata = sta.executeQuery(query);
+            PreparedStatement sta = conn.prepareStatement(query);
+            sta.setString(1, userId);
+            ResultSet setdata = sta.executeQuery();
 
             while (setdata.next()) {
                 Order order = new Order();
-                order.setOrderId(setdata.getString("orderId"));
-                order.setUserId(setdata.getString("userId"));
-
-                // productIds từ chuỗi → List<Integer>
-                String productIdsStr = setdata.getString("productIds");
-                List<Integer> productIds = new ArrayList<>();
-                if (productIdsStr != null && !productIdsStr.isEmpty()) {
-                    productIds = Arrays.stream(productIdsStr.split(","))
-                                    .map(String::trim)
-                                    .map(Integer::parseInt)
-                                    .toList();
-                }
-                order.setProductIds(productIds);
-
-                order.setTotalAmount(setdata.getDouble("totalAmount"));
-                order.setStatus(setdata.getString("status"));
+                order.setOrderID(setdata.getString("orderID"));
 
                 Date sqlDate = setdata.getDate("orderDate");
                 if (sqlDate != null) {
                     order.setOrderDate(sqlDate.toLocalDate());
                 }
+                order.setStatus(setdata.getString("status"));
 
                 orders.add(order);
             }

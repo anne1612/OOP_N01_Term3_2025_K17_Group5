@@ -32,7 +32,7 @@ public class userAiven {
                     "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
             Statement sta = conn.createStatement();
 
-            ResultSet setdata = sta.executeQuery("select * from user");
+            ResultSet setdata = sta.executeQuery("select * from Users");
             int index =0;
             int columnCount = setdata.getMetaData().getColumnCount();
              System.out.println("column #"+columnCount);
@@ -42,7 +42,7 @@ public class userAiven {
             while (setdata.next()) {
                 User user = new User();
               
-                String userID = setdata.getString("userId");
+                String userID = setdata.getString("userID");
            
                 String username = setdata.getString("name");
           

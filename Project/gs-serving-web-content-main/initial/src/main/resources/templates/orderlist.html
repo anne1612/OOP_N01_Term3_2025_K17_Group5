@@ -38,23 +38,21 @@
 
     <table class="table table-striped">
         <thead >
-            <tr ><p style="font-size:xx-large; color:darkcyan ;text-align: center;">List of User</p></tr>
+            <tr ><p style="font-size:xx-large; color:darkcyan ;text-align: center;">List of Order</p></tr>
             <tr>
                 <th><i class="bi bi-person-vcard"></i> Order ID </th>
-                <th><i class="bi bi-person-circle"></i> User ID</th>
-                <th> <i class="bi bi-house-heart"></i> Product ID </th>
-                   <th> <i class="bi bi-house-heart"></i> Total amount </th>
+                <th><i class="bi bi-person-circle"></i> Order Date </th>
+                <th> <i class="bi bi-house-heart"></i> Status </th>
                 <th> <i class="bi bi-brush"></i>Edit </th>
                 <th> <i class="bi bi-calendar2-x"></i> Delete </th>
             </tr>
         </thead>
         <tbody>
 
-            <tr th:each="ListOfOrder : ${ListOfOrder}">
-                <td data-sortable="true"><span th:text="${ListOfOrder.orderId}"> OrderID </span></td>
-                <td><span th:text="${ListOfOrder.userId"> User ID </span></td>
-                <td><span th:text="${ListOfOrder.productIds}"> Product ID </span></td>
-                <td><span th:text="${ListOfOrder.totalAmount}"> Total amount </span></td>
+            <tr th:each="listOfOrder : ${listOfOrder}">
+                <td data-sortable="true"><span th:text="${listOfOrder.orderID}"> OrderID </span></td>
+                <td><span th:text="${listOfOrder.orderDate}"> Order Date </span></td>
+                <td><span th:text="${listOfOrder.status}"> Status </span></td>
                               
                 <td><button type="button" class="btn btn-success bi bi-brush"> </button></td>
                 <td><button type="button" class="btn btn-danger bi bi-calendar2-x"> </button></td>

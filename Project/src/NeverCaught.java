@@ -1,4 +1,4 @@
-importim
+
 public class NeverCaught {
  static void g() {
  throw new RuntimeException(“From g()”); //Line 5

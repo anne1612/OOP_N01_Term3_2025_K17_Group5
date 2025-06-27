@@ -24,7 +24,7 @@ public class aivenConnection {
 
                   //  AVNS_2ZlIVz4ACEb86Eu0Exr
             Statement sta = conn.createStatement();
-            ResultSet reset = sta.executeQuery("select * from user");
+            ResultSet reset = sta.executeQuery("select * from Users");
             System.out.println("Display data from database: ");
             while (reset.next()) {
                 String userID = reset.getString("userID");
