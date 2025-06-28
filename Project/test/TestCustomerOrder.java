@@ -15,8 +15,20 @@ Scanner scanner = new Scanner(System.in);
 System.out.print("Nhập User ID: ");
 String inputUserId = scanner.nextLine();
 
+ArrayList<CustomerOrder> chek = orderList.filterCustomerOrderByUserId(inputUserId);
+if (chek.isEmpty()) {
+System.out.println("Không tìm thấy đơn hàng cho user: " + inputUserId);
+} else {
+System.out.println("Đơn hàng của user " + inputUserId + ":");
+for (CustomerOrder c : chek) {
+System.out.println("Order ID: " + c.orderId);
+}
+}
+
+scanner.close();
+}
 // Lọc và hiển thị đơn hàng đã thanh toán
-ArrayList<CustomerOrder> paidOrders = orderList.getPaidOrdersByUser(inputUserId);
+/*ArrayList<CustomerOrder> paidOrders = orderList.getPaidOrdersByUser(inputUserId);
 
 if (paidOrders.isEmpty()) {
 System.out.println("Không tìm thấy đơn hàng đã thanh toán cho user: " + inputUserId);
@@ -28,5 +40,5 @@ System.out.println("Order ID: " + c.orderId);
 }
 
 scanner.close();
-}
+}*/
 }

@@ -21,7 +21,7 @@ public class Main {
         //Menu.showMenu();
         //TestSequence.test();
         TestCustomerOrder.test();
-        AnExceptionThrower t = new AnExceptionThrower();
+        /*AnExceptionThrower t = new AnExceptionThrower();
         try {
         t.f();
         }
@@ -30,7 +30,7 @@ public class Main {
         }
         finally {
         System.out.println("Done");
-        }
+        }*/
 
     }
 }

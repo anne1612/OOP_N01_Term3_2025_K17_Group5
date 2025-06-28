@@ -1,23 +1,37 @@
+package com.example.servingwebcontent.database;
+
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Value;
 
-
+@Controller
 public class myConnection {
+    @Value("${app.database.url}")
+    private String urlString;
+    @Value("${app.database.driver}")
+    private String appDriver;
+    @Value("${app.database.user}")
+    private String appUser;
+    @Value("${app.database.password}")
+    private String appPassword;
+
     Connection conn = null;
     public Statement myConn() {
+        try {
+            System.out.println("This is my connection class");
 
-        System.out.println("This is my connection class");
-        // Here you can implement your connection logic
-        // For example, connecting to a database or any other service
-
-         Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://avnadmin:AVNS_PYuUDx9qsw8CL6Op5Ip@mysql-2fdea058-project-shopbee.l.aivencloud.com:15443/defaultdb?ssl-mode=REQUIRED",
-                    "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
-            Statement sta = conn.createStatement();
-            return sta;
+            Class.forName(appDriver);
+                conn = DriverManager.getConnection(urlString, appUser, appPassword);
+                Statement sta = conn.createStatement();
+                return sta;
+        }
+        catch(Exception e) {
+            System.out.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+        
     }
 }
