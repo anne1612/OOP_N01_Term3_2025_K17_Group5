@@ -41,19 +41,19 @@ public class ListCustomerOrder {
 
     }
 
-    public ArrayList<CustomerOrder> filterCustomerOrderTradition(String keyword) 
+   public ArrayList<CustomerOrder> filterCustomerOrderByUserId(String userId) 
     {
         ArrayList<CustomerOrder> newList = new ArrayList<CustomerOrder>();
 
         for (CustomerOrder c : co) {
-            if (c.orderId.contains(keyword) || c.userId.contains(keyword)) {
+            if (c.userId.equals(userId)) {
                 newList.add(c);
-
             }
         }
-        return newList;
 
+        return newList;
     }
+
 
    public ArrayList<CustomerOrder> getPaidOrdersByUser(String userId) 
    {
