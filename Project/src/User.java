@@ -4,18 +4,26 @@ public class User
 {
     private String userId; //private -> tính đóng gói 
     private String name;
-    private String gender;
+    private Gender gender;
     private String birthDate;
     private String phoneNumber;
     private String email;
     private String address;
     private String password;
-    private String userType;
+    private UserType userType;
+
+    public enum Gender {
+        Male, Female, Other
+    }
+
+    public enum UserType {
+        Customer, Seller
+    }
 
     public User(){}
 
-    public User(String userId, String name, String gender, String birthDate, String phoneNumber, 
-            String email, String address, String password, String userType)
+    public User(String userId, String name, Gender gender, String birthDate, String phoneNumber, 
+            String email, String address, String password, UserType userType)
     {
         this.userId = userId;
         this.name = name;
@@ -42,10 +50,10 @@ public class User
         this.name = name;
 
     } 
-    public void setUser(String userId, String name, String gender, String birthDate, String phoneNumber, 
+
+    public void setUser(String name, String gender, String birthDate, String phoneNumber, 
                             String email, String address, String password, String userType) 
     { 
-        this.userId = userId;
         this.name = name;
         this.gender = gender;
         this.birthDate = birthDate;

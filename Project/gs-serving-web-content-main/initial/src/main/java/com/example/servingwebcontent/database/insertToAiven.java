@@ -7,19 +7,23 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.servingwebcontent.model.User;
 
 import java.lang.System;
 
-
+@Service 
 public class insertToAiven {
+    @Autowired
+    private myConnection myConnection;
+
     public void insertToAivenDb(User u) {
-        Connection conn = null;
         System.out.println(
                 String.format("The current shell is: %s.", System.getenv("port")));
         try {
-            myConnection myConnection = new myConnection();
-            Statement sta = myConnection.myConn();
+            Connection conn = myConnection.getConnection();
 
             // random userID
             Random rand = new Random();
@@ -29,15 +33,16 @@ public class insertToAiven {
             String ad = u.getAddress();
 
             String reset = "INSERT INTO user(userId, username, address) VALUES(?, ?, ?)";
-            try (PreparedStatement pst = conn.prepareStatement(reset)) {
+            try (
+                PreparedStatement pst = conn.prepareStatement(reset)) {
                 pst.setString(1, userIdVal);
                 pst.setString(2, ur);
                 pst.setString(3, ad);
                 pst.executeUpdate();
+                System.out.println("Insert successful: " + userIdVal + ", " + ur + ", " + ad);
             }
             System.out.println("Display data from database: ");
 
-            sta.close();
             conn.close();
         } catch (Exception e) {
             System.out.println("Error in database connecion");

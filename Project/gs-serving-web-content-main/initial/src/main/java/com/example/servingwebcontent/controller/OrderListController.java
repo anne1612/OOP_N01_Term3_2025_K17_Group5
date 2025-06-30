@@ -1,5 +1,6 @@
 package com.example.servingwebcontent.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +17,14 @@ import com.example.servingwebcontent.model.User;
 //controller to order list
 @Controller
 public class OrderListController {
+    @Autowired
+    private orderAiven oa;
+
     @GetMapping("/orderlist")
 	public String orderlist(Model model) {
 
-		ArrayList<Order> listOfOrder = new ArrayList<Order>();
-		orderAiven oa = new orderAiven();
-		listOfOrder = oa.orderAivenList();
-
+		ArrayList<Order> listOfOrder = oa.orderAivenList();
 		model.addAttribute("listOfOrder", listOfOrder);
-
 		return "orderlist";
 	}
 
@@ -48,8 +48,7 @@ public class OrderListController {
     @GetMapping("/ordersearch")
     public String orderSearch(@RequestParam(name = "userId", required = false) String userId, Model model) {
         System.out.println("Received userId: " + userId);
-        ArrayList<Order> orderSearch = new ArrayList<Order>();
-        orderAiven oa = new orderAiven();
+        ArrayList<Order> orderSearch = oa.orderAivenList();
 
         // Nếu userId được nhập thì lọc theo userId
         if (userId != null && !userId.isEmpty()) {
