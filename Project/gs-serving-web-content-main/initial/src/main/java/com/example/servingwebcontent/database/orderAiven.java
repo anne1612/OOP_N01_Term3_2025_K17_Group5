@@ -9,7 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.sql.Date;
@@ -21,9 +23,12 @@ import com.example.servingwebcontent.model.Order;
 import com.example.servingwebcontent.model.User;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
-
+@Service
 public class orderAiven {
 
+    @Autowired
+    private myConnection myConnection;
+    
     public orderAiven(){}
 
     /*
@@ -31,34 +36,20 @@ public class orderAiven {
      * mapping database data to Model Song
      */
     
-    ArrayList<Order> items = new ArrayList<Order>(); 
-    @Value("${app.database.url}")
-    private String urlString;
-
-    @Value("${app.database.driver}")
-    private String appDriver;
-
+   
       /**
      * @return
      */
     public ArrayList<Order> orderAivenList() {
-      
-        Connection conn = null;
+        ArrayList<Order> items = new ArrayList<Order>(); 
         try {
-           
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://avnadmin:AVNS_PYuUDx9qsw8CL6Op5Ip@mysql-2fdea058-project-shopbee.l.aivencloud.com:15443/defaultdb?ssl-mode=REQUIRED",
-                    "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
+            Connection conn = myConnection.getConnection();
             Statement sta = conn.createStatement();
-
             ResultSet setdata = sta.executeQuery("select * from Orders");
             int index =0;
             int columnCount = setdata.getMetaData().getColumnCount();
              System.out.println("column #"+columnCount);
    
-          
-
             while (setdata.next()) {
                 Order order = new Order();
               
@@ -72,7 +63,7 @@ public class orderAiven {
                 System.out.println("Order AIVEN TEST:");
                 System.out.println(orderID + " " + sqlDate + " " + status);
 
-                order.setOrderID(orderID);
+                order.setOrderId(orderID);
                /*  if (sqlDate != null) {
                     order.setOrderDate(sqlDate.toLocalDate());
                 }*/
@@ -80,10 +71,8 @@ public class orderAiven {
                 order.setStatus(status);
                 
                 System.out.println("Get Order in order Aiven");
-                System.out.println(order.getOrderID());
+                System.out.println(order.getOrderId());
                 System.out.println(index);
-                
-
         
             items.add(order);
        }
@@ -99,7 +88,6 @@ public class orderAiven {
             e.printStackTrace();
         }
 
-        
         return items;
 
     }
@@ -107,17 +95,13 @@ public class orderAiven {
 
     public ArrayList<Order> orderListByUserId(String userId) {
         ArrayList<Order> orders = new ArrayList<>();
-        Connection conn = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://avnadmin:AVNS_PYuUDx9qsw8CL6Op5Ip@mysql-2fdea058-project-shopbee.l.aivencloud.com:15443/defaultdb?ssl-mode=REQUIRED",
-                    "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
+            Connection conn = myConnection.getConnection();
 
-            String query = "SELECT o.orderID, o.orderDate, o.status FROM Orders" + 
-                           "FROM Orders o" +
-                           "JOIN UserOrders uo ON o.orderID = uo.orderID" +
-                           "JOIN Users u ON uo.userId = u.userId" +
+            String query = "SELECT o.orderID, o.orderDate, o.status " + 
+                           "FROM Orders o " +
+                           "JOIN UserOrders uo ON o.orderID = uo.orderID " +
+                           "JOIN Users u ON uo.userId = u.userId " +
                            "WHERE u.userId = ?"; 
 
             PreparedStatement sta = conn.prepareStatement(query);
@@ -126,7 +110,7 @@ public class orderAiven {
 
             while (setdata.next()) {
                 Order order = new Order();
-                order.setOrderID(setdata.getString("orderID"));
+                order.setOrderId(setdata.getString("orderID"));
 
                 Date sqlDate = setdata.getDate("orderDate");
                 if (sqlDate != null) {

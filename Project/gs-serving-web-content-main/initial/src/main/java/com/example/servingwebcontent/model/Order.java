@@ -3,13 +3,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Order {
-    private String orderID;
+    private String orderId;
     private LocalDate orderDate;
     private String status;
 
-    public Order(String orderID) {
+    public Order(String orderId) {
         try {
-            this.orderID = orderID;
+            this.orderId = orderId;
             this.orderDate = LocalDate.now();
             this.status = "Pending";
         } catch (IllegalArgumentException e) {
@@ -36,13 +36,13 @@ public class Order {
 
 
        // Getter cho orderID
-    public String getOrderID() {
-        return orderID;
+    public String getOrderId() {
+        return orderId;
     }
 
     // Setter cho orderID
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     // Getter cho orderDate
@@ -90,7 +90,7 @@ public class Order {
 
     public void displayOrderInfo() {
         try {
-            System.out.println("Mã đơn hàng: " + orderID);
+            System.out.println("Mã đơn hàng: " + orderId);
             //System.out.println("Mã người dùng: " + userId);
             //System.out.println("Danh sách mã sản phẩm: " + productIds);
             //System.out.println("Tổng tiền: " + totalAmount + " VND");

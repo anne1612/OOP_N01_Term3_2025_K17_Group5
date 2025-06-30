@@ -3,10 +3,11 @@ package com.example.servingwebcontent.database;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.Connection;
-import org.springframework.stereotype.Controller;
+
+import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;
 
-@Controller
+@Component
 public class myConnection {
     @Value("${app.database.url}")
     private String urlString;
@@ -17,21 +18,19 @@ public class myConnection {
     @Value("${app.database.password}")
     private String appPassword;
 
-    Connection conn = null;
-    public Statement myConn() {
+    //Connection conn = null;
+    public Connection getConnection() {
+        System.out.println("DB URL: " + urlString);
+        System.out.println("DB Driver: " + appDriver);
+        System.out.println("DB User: " + appUser);
         try {
-            System.out.println("This is my connection class");
-
             Class.forName(appDriver);
-                conn = DriverManager.getConnection(urlString, appUser, appPassword);
-                Statement sta = conn.createStatement();
-                return sta;
+            return DriverManager.getConnection(urlString, appUser, appPassword);
         }
         catch(Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
-        
     }
 }

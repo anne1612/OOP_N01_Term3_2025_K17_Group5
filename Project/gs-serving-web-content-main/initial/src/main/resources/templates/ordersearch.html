@@ -23,7 +23,7 @@
 
         <!-- Hiển thị danh sách đơn hàng -->
         <div th:if="${orderSearch}">
-            <table class="table table-bordered mt-4">
+            <table class="table table-bordered mt-4">   
                 <thead>
                     <tr>
                         <th>Order ID</th>
@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="orderSearch : ${orderSearch}">
-                        <td th:text="${orderSearch.orderID}"></td>
+                        <td th:text="${orderSearch.orderId}"></td>
                         <td th:text="${orderSearch.orderDate}"></td>
                         <td th:text="${orderSearch.status}"></td>
                     </tr>
