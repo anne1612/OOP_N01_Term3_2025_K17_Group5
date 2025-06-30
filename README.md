@@ -1,29 +1,17 @@
 ## OOP_NO1_Term3_2025_K17_Group5
 
 # Group5
-
-Member:
-
-Nguyễn Văn Annn
-Github id: Ansociuu
-
-Phan Văn Phát
-Github id: dodorafust
-
-Trịnh Thị Lan Nhi
-Github id: lannhi07
-
-Nguyễn Lệ Thu
-Github id: nglthu
+Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
 
 
-- Nhật kí tạm thời: 
-  + 9/5: họp online để thống nhất và mô phỏng dự án. Thảo luận bài tập 1.
-  + 10/5: làm được 1/3 bài tập 1 và tiếp tục phần còn lại. Dự kiến 12h trưa mai hoàn thành bài tập.
+# Member:
+[Nguyen Van An](https://github.com/Ansociuu)<br>
+[Phan Van Phat](https://github.com/dodorafust)<br>
+[Trinh Thi Lan Nhi](https://github.com/lannhi07)<br>
+[Nguyen Le Thu](https://github.com/nglthu)
 
-### Câu 1: Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
 
-### Câu 2: Phân tích 4 đối tượng bao gồm: user, product, order, payment
+### Phân tích 4 đối tượng bao gồm: user, product, order, payment
 
 I. Đối tượng người dùng (user):
 1. Miêu tả thông tin của người dùng:
@@ -215,9 +203,4 @@ Lưu đồ thuật toán
 | Nhi        |kiểm thử chức năng tổng thể         |
 | Phát       | kiểm tra đơn hàng đã thanh toán    |
 
-👥 Phân công công việc (Yêu cầu số 5 & 7)
-Thành viên	Chức năng đảm nhiệm	Vai trò trong MVC	Đường dẫn UI
-An	In danh sách đơn hàng của khách hàng	
-Phát	In danh sách đơn hàng đã thanh toán	
-Nhi	Quản lý sản phẩm	
 
