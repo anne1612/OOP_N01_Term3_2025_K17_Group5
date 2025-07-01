@@ -1,69 +1,131 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <title>Hello, OOP class !</title>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Danh sách đơn hàng | Shopbee 🐝</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.5/dist/bootstrap-table.min.css">
+    <style>
+        body {
+            background-color: #fffbee;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-   
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.5/dist/bootstrap-table.min.js"></script>
+        .navbar {
+            background-color: #fbbc04 !important;
+        }
 
+        .navbar .navbar-toggler {
+            border-color: #fff;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        h2.title {
+            color: #f9a825;
+            text-align: center;
+            margin: 30px 0 20px;
+        }
+
+        .table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table thead {
+            background-color: #fce59c;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .btn-success, .btn-danger {
+            border-radius: 8px;
+        }
+
+        .btn-outline-info {
+            margin: 20px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
-
-
 <body>
-    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-        <div class="bg-dark p-4">
-          <h5 class="text-body-emphasis h4">Phenikaa Univesity</h5>
-          <span class="text-body-secondary">OOP Introduction.</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <span class="navbar-brand">🐝 Shopbee - Quản lý đơn hàng</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-      </nav>
+    </nav>
 
-      <a href="/greeting"><button type="button" class="btn btn-outline-info">Greeting</button></a>
+    <!-- Back button -->
+    <div class="text-center">
+        <a href="/greeting" class="btn btn-outline-info">
+            <i class="bi bi-house-door"></i> Trang chủ
+        </a>
+    </div>
 
-    <table class="table table-striped">
-        <thead >
-            <tr ><p style="font-size:xx-large; color:darkcyan ;text-align: center;">List of Order</p></tr>
-            <tr>
-                <th><i class="bi bi-person-vcard"></i> Order ID </th>
-                <th><i class="bi bi-person-circle"></i> Order Date </th>
-                <th> <i class="bi bi-house-heart"></i> Status </th>
-                <th> <i class="bi bi-brush"></i>Edit </th>
-                <th> <i class="bi bi-calendar2-x"></i> Delete </th>
-            </tr>
-        </thead>
-        <tbody>
+    <!-- Title -->
+    <h2 class="title">📋 Danh sách đơn hàng</h2>
 
-            <tr th:each="listOfOrder : ${listOfOrder}">
-                <td data-sortable="true"><span th:text="${listOfOrder.orderId}"> OrderID </span></td>
-                <td><span th:text="${listOfOrder.orderDate}"> Order Date </span></td>
-                <td><span th:text="${listOfOrder.status}"> Status </span></td>
-                              
-                <td><button type="button" class="btn btn-success bi bi-brush"> </button></td>
-                <td><button type="button" class="btn btn-danger bi bi-calendar2-x"> </button></td>
-                
+    <div th:if="${error}" class="alert alert-danger text-center mx-auto w-75 mt-3" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span th:text="${error}">Đã xảy ra lỗi.</span>
+        </div>
 
+    <!-- Table -->
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th><i class="bi bi-person-vcard"></i> Mã đơn</th>
+                    <th><i class="bi bi-calendar3"></i> Ngày đặt</th>
+                    <th><i class="bi bi-info-circle"></i> Trạng thái</th>
+                    <th><i class="bi bi-brush"></i> Chỉnh sửa</th>
+                    <th><i class="bi bi-trash3"></i> Xoá</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="listOfOrder : ${listOfOrder}">
+                    <td th:text="${listOfOrder.orderId}">OrderID</td>
+                    <td th:text="${listOfOrder.orderDate}">Order Date</td>
+                    <td th:text="${listOfOrder.status}">Status</td>
+                    <td>
+                        <button type="button" class="btn btn-success">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            </tr>
-        </tbody>
-    </table>
-
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

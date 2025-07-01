@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import com.example.servingwebcontent.model.User;
 
 public class WriteToFile {
+    //Sau này dùng để xuất hóa đơn
     public void ToFile(ArrayList<User> u) {
         try {
             
             int i = u.size() - 1;
-            FileWriter writer = new FileWriter("./complete/File/Login.txt", true);
+            FileWriter writer = new FileWriter("./initial/File/Login.txt", true);
             writer.append("\n");
 
             writer.write(u.get(i).getName());

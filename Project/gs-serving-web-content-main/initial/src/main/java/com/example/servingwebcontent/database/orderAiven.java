@@ -1,27 +1,17 @@
 package com.example.servingwebcontent.database;
 
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 import java.sql.Date;
-import java.time.LocalDate;
-
-
-import com.example.servingwebcontent.model.UserList;
 import com.example.servingwebcontent.model.Order;
-import com.example.servingwebcontent.model.User;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import com.example.servingwebcontent.model.OrderPayment;
+
 
 @Service
 public class orderAiven {
@@ -31,15 +21,6 @@ public class orderAiven {
     
     public orderAiven(){}
 
-    /*
-     * to do
-     * mapping database data to Model Song
-     */
-    
-   
-      /**
-     * @return
-     */
     public ArrayList<Order> orderAivenList() {
         ArrayList<Order> items = new ArrayList<Order>(); 
         try {
@@ -54,19 +35,13 @@ public class orderAiven {
                 Order order = new Order();
               
                 String orderID = setdata.getString("orderID");
-                //String orderDate = setdata.getLocalDate("orderDate");
-                
                 Date sqlDate = setdata.getDate("orderDate");
-                
                 String status = setdata.getString("status");
 
                 System.out.println("Order AIVEN TEST:");
                 System.out.println(orderID + " " + sqlDate + " " + status);
 
                 order.setOrderId(orderID);
-               /*  if (sqlDate != null) {
-                    order.setOrderDate(sqlDate.toLocalDate());
-                }*/
                 order.setOrderDate(sqlDate.toLocalDate());
                 order.setStatus(status);
                 
@@ -93,32 +68,38 @@ public class orderAiven {
     }
     
 
-    public ArrayList<Order> orderListByUserId(String userId) {
-        ArrayList<Order> orders = new ArrayList<>();
+    public ArrayList<OrderPayment> orderListByUserId(String userId) {
+        ArrayList<OrderPayment> orders = new ArrayList<>();
         try {
             Connection conn = myConnection.getConnection();
 
-            String query = "SELECT o.orderID, o.orderDate, o.status " + 
+            String query = "SELECT o.orderID, o.orderDate, u.name, p.method, p.amount, p.status " + 
                            "FROM Orders o " +
                            "JOIN UserOrders uo ON o.orderID = uo.orderID " +
                            "JOIN Users u ON uo.userId = u.userId " +
-                           "WHERE u.userId = ?"; 
+                           "JOIN OrderPayments op ON o.orderID = op.orderID " +
+                           "JOIN Payments p ON op.paymentID = p.paymentID " +
+                           "WHERE u.userId = ? AND p.status = 'Completed'"; 
 
             PreparedStatement sta = conn.prepareStatement(query);
             sta.setString(1, userId);
             ResultSet setdata = sta.executeQuery();
 
             while (setdata.next()) {
-                Order order = new Order();
-                order.setOrderId(setdata.getString("orderID"));
-
+                OrderPayment op = new OrderPayment();
+                op.setOrderId(setdata.getString("orderID"));
                 Date sqlDate = setdata.getDate("orderDate");
                 if (sqlDate != null) {
-                    order.setOrderDate(sqlDate.toLocalDate());
+                    op.setOrderDate(sqlDate.toLocalDate());
                 }
-                order.setStatus(setdata.getString("status"));
+                op.setCustomerName(setdata.getString("name"));
+                op.setPaymentMethod(setdata.getString("method"));
+                op.setPaymentAmount(setdata.getDouble("amount"));
+                op.setPaymentStatus(setdata.getString("status"));
 
-                orders.add(order);
+                op.setPaymentStatus(setdata.getString("status"));
+
+                orders.add(op);
             }
 
             setdata.close();
