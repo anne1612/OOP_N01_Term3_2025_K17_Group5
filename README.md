@@ -1,206 +1,199 @@
-## OOP_NO1_Term3_2025_K17_Group5
+# 🐝 Shopbee – Hệ thống mua bán hàng trực tuyến
 
-# Group5
-Tiêu đề của bài tập lớn cuối kỳ: Hệ thống mua bán hàng trực tuyến shopbee.
+> **Dự án cuối kỳ môn Lập trình Hướng Đối Tượng (OOP)**  
+> Nhóm 5 – K17 – Term 3 – Năm học 2025  
+> Giảng viên hướng dẫn: TS. Nguyễn Lệ Thu
 
+---
 
-# Member:
-[Nguyen Van An](https://github.com/Ansociuu)<br>
-[Phan Van Phat](https://github.com/dodorafust)<br>
-[Trinh Thi Lan Nhi](https://github.com/lannhi07)<br>
-[Nguyen Le Thu](https://github.com/nglthu)
+## 📌 Giới thiệu
+**Shopbee** là một ứng dụng mô phỏng hệ thống mua bán hàng trực tuyến với đầy đủ các chức năng: quản lý người dùng, sản phẩm, đơn hàng và thanh toán. Giao diện console viết bằng Java, ứng dụng sử dụng mô hình hướng đối tượng, lưu trữ dữ liệu bằng file nhị phân và thao tác với các cấu trúc dữ liệu như `ArrayList`.
 
+---
 
-### Phân tích 4 đối tượng bao gồm: user, product, order, payment
+## 👥 Thành viên nhóm
+| STT | Họ tên              | GitHub                         |
+|-----|---------------------|--------------------------------|
+| 1   | Nguyễn Văn An       | [Ansociuu](https://github.com/Ansociuu), [anne1612](https://github.com/anne1612)|                       
+| 2   | Phan Văn Phát       | [dodorafust](https://github.com/dodorafust) |
+| 3   | Trịnh Thị Lan Nhi   | [lannhi07](https://github.com/lannhi07) |
+| 4   | Nguyễn Lê Thư       | [nglthu](https://github.com/nglthu) |
 
-I. Đối tượng người dùng (user):
-1. Miêu tả thông tin của người dùng:
- + Mã người dùng
- + Tên người dùng
- + Giới tính
- + Ngày sinh
- + Số điện thoại
- + Email
- + Địa chỉ
- + Mật khẩu
- + Loại người dùng (Khách hàng/Nhà cung cấp)
-2. Phương thức hoạt động liên quan đến đối tượng người dùng:
- + Đăng kí tài khoản, đăng nhập (bằng sdt, email)
- + Hiển thị thông sinh người dùng
- + Mua sản phẩm, thanh toán (khách hàng)
- + Đăng bán sản phẩm (nhà cung cấp)
+---
 
-II. Đối tượng sản phẩm (product):
-1. Miêu tả thông tin của sản phẩm:
- + Mã sản phẩm
- + Mã người bán (nhà cung cấp)
- + Tên sản phẩm
- + Giá sản phẩm
- + Số lượng sản phẩm
- + Mô tả sản phẩm
-2. Phương thức hoạt động liên quan đến đối tượng sản phẩm:
- + Hiển thị thông tin sản phẩm
- + Cập nhật số lượng sản phẩm (sau khi mua bán)
+## 🧠 Phân tích đối tượng
 
-III. Đối tượng đơn hàng (order):
-1. Miêu tả thông tin của đơn hàng:
- + Mã đơn hàng
- + Mã người dùng (khách hàng)
- + Danh sách sản phẩm (tên, số lượng, giá)
- + Tổng tiền
- + Ngày đặt hàng
- + Trạng thái đơn hàng (chờ xác nhận, đang giao, đã nhận, đã hủy)
-2. Phương thức hoạt động liên quan đến đối tượng đơn hàng:
- + Tạo đơn hàng mới (khi khách hàng mua)
- + Hiển thị thông tin đơn hàng
- + Cập nhật trạng thái đơn hàng
- + Tính tổng số tiền
+### 1. 👤 Người dùng (`User`)
+- **Thuộc tính**: ID, tên, giới tính, ngày sinh, số điện thoại, email, địa chỉ, mật khẩu, loại người dùng (khách hàng / nhà cung cấp)
+- **Chức năng**:
+  - Đăng ký / đăng nhập (qua email hoặc số điện thoại)
+  - Hiển thị thông tin
+  - Mua hàng (khách hàng)
+  - Đăng bán sản phẩm (nhà cung cấp)
 
-IV. Đối tượng thanh toán (payment):
-1. Miêu tả thông tin của thanh toán:
- + Mã thanh toán
- + Mã đơn hàng
- + Số tiền thanh toán
- + Phương thức thanh toán (tiền mặt, ví điện tử)
- + Trạng thái thanh toán (đã thanh toán, chưa thanh toán)
- + Ngày thanh toán
-2. Phương thức hoạt động liên quan đến đối tượng thanh toán:
- + Thực hiện thanh toán
- + Hiển thị thông tin thanh toán
- + Cập nhật phương thức thanh toán
- + Cập nhật trạng thái thanh toán
+### 2. 📦 Sản phẩm (`Product`)
+- **Thuộc tính**: ID, ID người bán, tên, giá, số lượng, mô tả
+- **Chức năng**:
+  - Hiển thị thông tin
+  - Cập nhật số lượng sau khi mua bán
 
-### Câu 3: Cấu trúc folder
+### 3. 🧾 Đơn hàng (`Order`)
+- **Thuộc tính**: ID, ID khách hàng, danh sách sản phẩm (tên, số lượng, giá), tổng tiền, ngày đặt, trạng thái (chờ xác nhận, đang giao, đã nhận, đã hủy)
+- **Chức năng**:
+  - Tạo đơn hàng mới
+  - Hiển thị và cập nhật đơn hàng
+  - Tính tổng tiền
 
-### 📁 Cấu trúc thư mục Project
+### 4. 💳 Thanh toán (`Payment`)
+- **Thuộc tính**: ID thanh toán, ID đơn hàng, số tiền, phương thức (tiền mặt, ví điện tử), trạng thái (đã thanh toán / chưa), ngày thanh toán
+- **Chức năng**:
+  - Thực hiện và cập nhật thanh toán
+  - Hiển thị thông tin thanh toán
+
+---
+
+## 🗂️ Cấu trúc thư mục
 
 ```plaintext
 Project/
-├── .vscode/
-├── bin/
-├── src/
+├── .vscode/                           # Cấu hình cho VSCode
+├── bin/                               # File biên dịch .class (tự tạo khi chạy)
+├── gs-serving-web-content-main/       # Spring Boot
+│   ├── complete
+│   ├── img
+│   ├── initial
+│   └── ...
+├── review/                             # File bài tập
+├── src/                                # Mã nguồn chính xây dựng từ đầu đến bây giờ
 │   ├── Customer.java
 │   ├── Main.java
 │   ├── Order.java
 │   ├── Payment.java
 │   ├── Product.java
 │   ├── Seller.java
-│   └── User.java
-├── test/
+│   └── ...
+├── test/                               # Thư mục chứa các lớp kiểm thử thủ công
 │   ├── TestOrder.java
 │   ├── TestPayment.java
 │   ├── TestProduct.java
-│   └── TestUser.java
-├── README.md
-
+│   └── ...
+└── README.md                           # Tài liệu mô tả dự án
 ```
 
+---
 
-### Câu 4: 
-  Chúng em viết 7 class cho 4 đối tượng xác định được ở câu 2 (bao gồm main). 
-- Với đối tượng user ta có: class user, class customer và class seller. Customer và seller kế thừa user. 
-- Với đối tượng product ta có: class product 
-- Với đối tượng order ta có: class order
-- Với đối tượng payment ta có: class payment
+## 🧱 Cấu trúc lớp và phân lớp
 
-(Các chức năng cơ bản tương tự câu 2)
+### Các lớp chính:
 
-
-### Câu 5:
-
-Để kiểm tra tính đúng đắn và ổn định của lớp User, Customer và Seller, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Đăng kí, hiển thị thông tin, đăng nhập, mua (của customer) và bán (của seller).
-
-Để kiểm tra tính đúng đắn và ổn định của lớp Product, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo, hiển thị và cập nhật số lượng sản phẩm, xử lý lỗi khi số lượng sản phẩm không đủ và hiển thị lại thông tin sản phẩm sau khi cập nhật.
-
-Để kiểm tra tính đúng đắn và ổn định của lớp Order, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo hóa đơn mới, hiển thị thông tin đơn hàng, cập nhật trạng thái và hiển thị lại đơn hàng để kiểm tra. 
-    
-Để kiểm tra tính đúng đắn và ổn định của lớp Payment, chúng tôi thực hiện kiểm thử cho các chức năng chính sau:
-  - Tạo, hiển thị và cập nhật thanh toán, cập nhật phương thức thanh toán, kiểm tra trạng thái thanh toán chưa hoàn tất.
+- `User` *(abstract)*: lớp cha chung cho người dùng
+- `Customer`, `Seller`: kế thừa từ `User`, tương ứng với 2 loại người dùng
+- `Product`: thông tin và xử lý sản phẩm
+- `Order`: thông tin và xử lý đơn hàng
+- `Payment`: xử lý thanh toán
+- `Main`: lớp chạy chính của chương trình
 
 ---
-## Nội dung
 
-Xây dựng ứng dụng mua bán hàng trực tuyến Shopbee
+## ✅ Kiểm thử chức năng
 
-Yêu cầu:
-- Giao diện Java Spring Boot.
-- Có chức năng quản lý người dùng, sản phẩm, đơn hàng và thanh toán.
-- Và các chức năng khác.
+| Lớp         | Chức năng kiểm thử chính                                              |
+|-------------|------------------------------------------------------------------------|
+| `User`      | Đăng ký, đăng nhập, hiển thị thông tin                                |
+| `Customer`  | Mua hàng, tạo đơn hàng                                                |
+| `Seller`    | Đăng bán sản phẩm, quản lý sản phẩm                                   |
+| `Product`   | Tạo, hiển thị, cập nhật số lượng, xử lý lỗi số lượng không hợp lệ     |
+| `Order`     | Tạo đơn hàng, hiển thị đơn hàng, cập nhật trạng thái, tính tổng tiền  |
+| `Payment`   | Tạo, cập nhật phương thức và trạng thái thanh toán                    |
 
-Cụ thể: 
-- Có chức năng quản lí người dùng (user)
-  + Thêm, sửa, xóa người dùng 
-  + Liệt kê thông tin về người dùng, có thể lọc ra các người dùng theo 2 loại: khách hàng (customer), nhà cung cấp (seller)
-    
-- Có chức năng quản lý sản phẩm (product)
-  + Thêm, sửa, xóa sản phẩm
-  + Hiển thị thông tin sản phẩm
-  + Cập nhập số lượng sản phẩm
-  + Gán sản phẩm cho nhà cung cấp và đơn hàng
+---
 
-- Có chức năng quản lý đơn hàng (order)
-  + Thêm, sửa, xóa đơn hàng
-  + Hiển thị thông tin đơn hàng
-  + Cập nhập trạng thái đơn hàng
-  + Tính tổng số tiền
-  + Gán đơn hàng cho khách hàng và thanh toán
-  
-- Có chức năng quản lý thanh toán (payment)
-  + Thực hiện thanh toán
-  + Hiển thị thông tin thanh toán
-  + Cập nhật phương thức thanh toán
-  + Cập nhật trạng thái thanh toán
+## 🛠️ Chức năng chính
 
-- Dữ liệu được lưu trữ xuống file nhị phân
-  + Cần tạo các lớp liên quan đến người dùng, sản phẩm, đơn hàng và thanh toán để đọc, ghi xuống 1 hay nhiều file.
+- **Quản lý người dùng**:
+  - Thêm / Sửa / Xóa người dùng
+  - Lọc theo loại: Khách hàng (`Customer`), Nhà cung cấp (`Seller`)
 
-- Khi làm việc với dữ liệu trong bộ nhớ, dữ liệu cần được lưu trữ dưới dạng các Collection tùy chọn như ArrayList, LinkedList, Map, ....
-## Class Diagram 
-![Image](images/ClassDiagramShopbee.png)
-## Activity Diagram
-#### 1. Đăng nhập
+- **Quản lý sản phẩm**:
+  - Thêm / Sửa / Xóa sản phẩm
+  - Gán sản phẩm cho nhà cung cấp
+  - Cập nhật số lượng sản phẩm sau mỗi đơn hàng
 
-![Image](images/Activity_login.png)
+- **Quản lý đơn hàng**:
+  - Tạo / Cập nhật đơn hàng
+  - Hiển thị danh sách đơn hàng
+  - Gán đơn hàng cho khách hàng và thanh toán
+  - Tính tổng tiền đơn hàng
 
-#### 2. Mua hàng
-![Image](images/BuyActivityDiagram.png)
+- **Quản lý thanh toán**:
+  - Tạo và cập nhật thanh toán
+  - Hiển thị thông tin thanh toán
+  - Cập nhật trạng thái, phương thức thanh toán
 
-#### 3. Bán hàng
-![Image](images/SellActivityDiagram.png)
+- **Lưu trữ dữ liệu**:
+  - Dữ liệu được lưu vào file nhị phân 
+  - Sử dụng `ObjectOutputStream`, `ObjectInputStream`
+  - Áp dụng `ArrayList`, `Map`,... để quản lý dữ liệu trong bộ nhớ
 
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="images/Add.png" height="520px"><br/>
-      <em>Thêm</em>
-    </td>
-    <td align="center" width="33%">
-      <img src="images/Edit.png" height="500px"><br/>
-      <em>Sửa</em>
-    </td>
-    <td align="center" width="33%">
-      <img src="images/Delete.png" height="500px"><br/>
-      <em>Xóa</em>
-    </td>
-  </tr>
-</table>
+---
 
-## Chức năng chính
- thông báo danh sách đơn hàng đã thanh toán bởi khách hàng cụ thể
+## 📊 Biểu đồ lớp (Class Diagram)
 
-Lưu đồ thuật toán
+![Class Diagram](images/ClassDiagramShopbee.png)
 
+---
+
+## 🔁 Biểu đồ hoạt động (Activity Diagram)
+
+### 1. Đăng nhập
+![Login Activity](images/Activity_login.png)
+
+### 2. Mua hàng
+![Buy Activity](images/BuyActivityDiagram.png)
+
+### 3. Bán hàng
+![Sell Activity](images/SellActivityDiagram.png)
+
+### 4. Tìm kiếm danh sách đơn hàng đã thanh toán của khách hàng cụ thể 
 ![Image](images/An.png)
 
-## Phân công công việc
+---
 
-| Thành viên |              Nhiệm vụ              |
-|------------|------------------------------------|
-| An         |In danh sách đơn hàng của khách hàng| 
-| Nhi        |kiểm thử chức năng tổng thể         |
-| Phát       | kiểm tra đơn hàng đã thanh toán    |
+## 🖼️ Giao diện chương trình (Console)
+![Console](images/Console.png)
+
+---
+
+## 🌟 Chức năng nổi bật
+
+- **Xử lý nhập sai dữ liệu, đăng nhập, đăng kí**
+- **Đăng bán/Mua sản phẩm**
+- **Tìm kiếm danh sách đơn hàng đã thanh toán theo từng khách hàng**
+- **Hiển thị dữ liệu chi tiết và rõ ràng dưới giao diện console**
+
+---
+
+## 💡 Công nghệ sử dụng
+
+- Ngôn ngữ lập trình: **Java**
+- Mô hình hướng đối tượng (OOP)
+- **Framework**: [Spring Boot](https://spring.io/projects/spring-boot)
+  - Quản lý luồng xử lý, cấu trúc theo mô hình MVC
+- Giao diện: Console (text-based)
+- Lưu trữ: File nhị phân 
+- Cấu trúc dữ liệu: `ArrayList`, `LinkedList`, `Map`,...
+
+---
+
+## 📚 Tài liệu tham khảo
+
+- Slide bài giảng môn Lập trình Hướng Đối Tượng – GVHD: Nguyễn Lệ Thu
+- Java Docs – Oracle
+- Stack Overflow – Community
+
+---
+
+> © 2025 Nhóm 5 – Shopbee 🐝  
+> *Hệ thống mua bán hàng trực tuyến – Mã nguồn mở cho mục đích học tập*
 
 
