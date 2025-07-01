@@ -46,13 +46,9 @@ public class User
     public String getAddress() { return address; }
     public String getPassword() { return password; }
     public UserType getUserType() { return userType; }
-    public void setName(String name)
-    {
-        this.name = name;
-
-    } 
+ 
     public void setUser(String userId, String name, Gender gender, String birthDate, String phoneNumber, 
-                            String email, String address, String password, UserType userType) 
+                            String email, String address, UserType userType) 
     { 
         this.userId = userId;
         this.name = name;
@@ -61,27 +57,46 @@ public class User
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
-        this.password = password;
         this.userType = userType; 
     }
 
-    public void setUserId(String userId)
-        {
-            this.userId = userId;
-        }
-
-    public void setUserName(String name)
-    {
-        this.name = name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
+    public void setName(String name){
+        this.name = name;
 
-    public void setAddress(String address)
-    {
+    } 
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthDate(String birthDate){
+        this.birthDate = birthDate;
+    } 
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
-
     }
     
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
     public void printUserName(User u){
         System.out.println("Submited Name:");
         System.out.println(u.name);

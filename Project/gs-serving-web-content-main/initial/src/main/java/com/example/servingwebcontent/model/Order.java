@@ -1,6 +1,5 @@
 package com.example.servingwebcontent.model;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Order {
     private String orderId;
@@ -64,21 +63,6 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
- 
-
-    /*public void setProductIds(List<Integer> productIds) {
-    try {
-        if (productIds == null || productIds.isEmpty()) {
-            throw new IllegalArgumentException("Danh sách sản phẩm không được để trống.");
-        }
-        this.productIds = productIds;
-    } catch (IllegalArgumentException e) {
-        System.out.println("Lỗi khi cập nhật danh sách sản phẩm: " + e.getMessage());
-    } catch (Exception e) {
-        System.out.println("Lỗi không xác định khi cập nhật danh sách sản phẩm: " + e.getMessage());
-    }
-    }*/
-
 
     public void updateStatus(String newStatus) {
         try {
@@ -91,9 +75,6 @@ public class Order {
     public void displayOrderInfo() {
         try {
             System.out.println("Mã đơn hàng: " + orderId);
-            //System.out.println("Mã người dùng: " + userId);
-            //System.out.println("Danh sách mã sản phẩm: " + productIds);
-            //System.out.println("Tổng tiền: " + totalAmount + " VND");
             System.out.println("Ngày đặt hàng: " + orderDate);
             System.out.println("Trạng thái: " + status);
         } catch (Exception e) {

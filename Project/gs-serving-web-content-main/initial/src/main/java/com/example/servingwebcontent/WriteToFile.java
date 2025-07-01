@@ -12,7 +12,7 @@ public class WriteToFile {
         try {
             
             int i = u.size() - 1;
-            FileWriter writer = new FileWriter("./complete/File/Login.txt", true);
+            FileWriter writer = new FileWriter("./initial/File/Login.txt", true);
             writer.append("\n");
 
             writer.write(u.get(i).getName());

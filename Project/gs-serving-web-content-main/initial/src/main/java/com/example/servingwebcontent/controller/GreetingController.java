@@ -5,13 +5,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class GreetingController {
 
 	@GetMapping("/greeting")
-	public String greeting(@RequestParam(name="name", required=false, defaultValue="OOP Class !") String name, Model model) {
-		model.addAttribute("name", name);
-		return "greeting";
+	public String greeting(HttpSession session, Model model) {
+		try {
+			String name = (String) session.getAttribute("name");
+			model.addAttribute("name", name != null ? name : "bạn");
+			return "greeting";
+		} catch (Exception e) {
+			model.addAttribute("error", "❌ Lỗi khi hiển thị lời chào: " + e.getMessage());
+			return "error";
+		}
 	}
-
 }

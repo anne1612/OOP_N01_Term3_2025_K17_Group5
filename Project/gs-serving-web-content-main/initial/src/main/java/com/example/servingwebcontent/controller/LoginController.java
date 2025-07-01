@@ -4,75 +4,69 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.lang.RuntimeException;
-import java.util.ArrayList;
-import com.example.servingwebcontent.database.insertToAiven;
-import com.example.servingwebcontent.WriteToFile;
-import com.example.servingwebcontent.database.aivenConnection;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import com.example.servingwebcontent.database.userAiven;
 import com.example.servingwebcontent.model.User;
-import com.example.servingwebcontent.model.UserList;
 
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
 
-	@GetMapping("/Login")
+    @Autowired
+    private userAiven ua;
 
-	public String login(@RequestParam(name = "fname", required = false, defaultValue = "OOP Class !") String name, @RequestParam String address,
-			Model model) {
+    // Trang chủ
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
 
-		try {
-			System.out.println(name);
-			System.out.println(address);
-			if (name.equals("")) {
-				System.out.println("No name");
+    // Hiển thị form đăng ký
+    @GetMapping("/register")
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
 
-			} else {
-				model.addAttribute("name", name);
-				model.addAttribute("address", address);
-				User u = new User();
-				u.setUserName(name);
-				u.setAddress(address);
-				u.printUserName(u);
-				// u.listUser(u);
+    // Xử lý đăng ký
+    @PostMapping("/register")
+    public String processRegister(@ModelAttribute("user") User user, Model model) {
+        try {
+            boolean success = ua.register(user);
+            if (!success) {
+                model.addAttribute("error", "Email đã được sử dụng.");
+                return "register";
+            }
+            return "redirect:/login";
+        } catch (Exception e) {
+            model.addAttribute("error", "❌ Lỗi khi đăng ký: " + e.getMessage());
+            return "register";
+        }
+    }
 
-				ArrayList<User> al = new ArrayList<User>();
-				User u1 = new User();
-				u1.setUserName("test1aaaaaaaaaaaaaaaaaaa");
+    // Hiển thị form đăng nhập
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
 
-				User u2 = new User();
-				u2.setUserName("test2aaaaaaaaaaaaaaaaaaa");
-				al.add(u1);
-				al.add(u2);
-
-				al.add(u);
-
-				UserList lu = new UserList();
-				lu.printListUser(al);
-				
-				model.addAllAttributes(al);
-				WriteToFile wf = new WriteToFile();
-				wf.ToFile(al);
-				insertToAiven iu = new insertToAiven();
-				iu.insertToAivenDb(u);
-				aivenConnection ac = new aivenConnection();
-				ac.aivenConn();
-				
-
-			}
-
-		} catch (RuntimeException e) {
-
-			System.out.println(e);
-
-		} finally {
-			System.out.println("done");
-
-		}
-
-		return "greeting";
-	}
-
+    // Xử lý đăng nhập
+    @PostMapping("/login")
+    public String processLogin(@ModelAttribute("user") User user, Model model, HttpSession session) {
+        try {
+            User loggedIn = ua.login(user.getEmail(), user.getPassword());
+            if (loggedIn == null) {
+                model.addAttribute("error", "Email hoặc mật khẩu không đúng.");
+                return "login";
+            }
+            session.setAttribute("name", loggedIn.getName());
+            return "redirect:/greeting";
+        } catch (Exception e) {
+            model.addAttribute("error", "❌ Lỗi khi đăng nhập: " + e.getMessage());
+            return "login";
+        }
+    }
 }

@@ -11,9 +11,6 @@ import java.util.Locale;
 
 
 public class aivenConnection {
-    /*
-     * mysql://avnadmin:AVNS_2ZlIVz4ACEb86Eu0Exr@mysql-14737a33-nglthu-4e05.k.aivencloud.com:17237/defaultdb?ssl-mode=REQUIRED
-     */
     public void aivenConn() {
         Connection conn = null;
         try {
@@ -21,8 +18,6 @@ public class aivenConnection {
             conn = DriverManager.getConnection(
                     "jdbc:mysql://avnadmin:AVNS_PYuUDx9qsw8CL6Op5Ip@mysql-2fdea058-project-shopbee.l.aivencloud.com:15443/defaultdb?ssl-mode=REQUIRED",
                     "avnadmin", "AVNS_PYuUDx9qsw8CL6Op5Ip");
-
-                  //  AVNS_2ZlIVz4ACEb86Eu0Exr
             Statement sta = conn.createStatement();
             ResultSet reset = sta.executeQuery("select * from Users");
             System.out.println("Display data from database: ");
@@ -33,7 +28,7 @@ public class aivenConnection {
                 System.out.println(userID + " " + username + " " + address);
 
             }
-
+            
             reset.close();
             sta.close();
             conn.close();
