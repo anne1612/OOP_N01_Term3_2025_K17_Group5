@@ -12,12 +12,12 @@
 ---
 
 ## 👥 Thành viên nhóm
-| STT | Họ tên              | GitHub                         |
-|-----|---------------------|--------------------------------|
-| 1   | Nguyễn Văn An       | [Ansociuu](https://github.com/Ansociuu), [anne1612](https://github.com/anne1612)|                       
-| 2   | Phan Văn Phát       | [dodorafust](https://github.com/dodorafust) |
-| 3   | Trịnh Thị Lan Nhi   | [lannhi07](https://github.com/lannhi07) |
-| 4   | Nguyễn Lê Thư       | [nglthu](https://github.com/nglthu) |
+| STT | Họ tên               | GitHub                                               |
+|-----|----------------------|------------------------------------------------------|
+| 1   | Nguyễn Văn An        | [Ansociuu](https://github.com/Ansociuu), [anne1612](https://github.com/anne1612) |
+| 2   | Phan Văn Phát        | [dodorafust](https://github.com/dodorafust)          |
+| 3   | Trịnh Thị Lan Nhi    | [lannhi07](https://github.com/lannhi07)              |
+| 4   | Nguyễn Lệ Thu        | [nglthu](https://github.com/nglthu)                  |
 
 ---
 
