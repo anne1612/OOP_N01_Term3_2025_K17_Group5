@@ -1,9 +1,7 @@
 package com.example.servingwebcontent.database;
 
 import java.sql.DriverManager;
-import java.sql.Statement;
 import java.sql.Connection;
-
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -17,8 +15,7 @@ public class myConnection {
     private String appUser;
     @Value("${app.database.password}")
     private String appPassword;
-
-    //Connection conn = null;
+    
     public Connection getConnection() {
         System.out.println("DB URL: " + urlString);
         System.out.println("DB Driver: " + appDriver);

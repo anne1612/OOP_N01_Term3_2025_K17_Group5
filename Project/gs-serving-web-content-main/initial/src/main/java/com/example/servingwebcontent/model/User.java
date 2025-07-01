@@ -1,5 +1,6 @@
 package com.example.servingwebcontent.model;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class User 
 {
@@ -23,9 +24,10 @@ public class User
 
     public User(){}
 
-    public User(String name, Gender gender, String birthDate, String phoneNumber, 
+    public User(String userId, String name, Gender gender, String birthDate, String phoneNumber, 
             String email, String address, String password, UserType userType)
     {
+        this.userId = userId;
         this.name = name;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -119,50 +121,73 @@ public class User
         System.out.println("Loại người dùng: " + userType);
     }
 
-     public void registerUser() 
-     {
+    public void registerUser() 
+    {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập mã người dùng: ");
-        userId = sc.nextLine();
+        try {
+            System.out.print("Nhập mã người dùng: ");
+            userId = sc.nextLine();
 
-        System.out.print("Nhập tên: ");
-        name = sc.nextLine();
+            System.out.print("Nhập tên: ");
+            name = sc.nextLine();
 
-        while (true) {
-            System.out.print("Nhập giới tính (Male/Female/Other): ");
-            try {
-                gender = Gender.valueOf(sc.nextLine());
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Giới tính không hợp lệ! Vui lòng nhập lại.");
+            // --- Giới tính ---
+            while (true) {
+                System.out.print("Nhập giới tính (Male/Female/Other): ");
+                try {
+                    gender = Gender.valueOf(sc.nextLine().trim());
+                    break;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("❌ Giới tính không hợp lệ! Vui lòng nhập lại.");
+                }
             }
+
+            System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
+            birthDate = sc.nextLine();
+
+            System.out.print("Nhập số điện thoại: ");
+            phoneNumber = sc.nextLine();
+
+            // --- Email ---
+            while (true) {
+                System.out.print("Nhập email: ");
+                email = sc.nextLine().trim();
+                if (isValidEmail(email)) {
+                    break;
+                } else {
+                    System.out.println("❌ Email không hợp lệ! Vui lòng nhập đúng định dạng.");
+                }
+            }
+
+            System.out.print("Nhập địa chỉ: ");
+            address = sc.nextLine();
+
+            System.out.print("Nhập mật khẩu: ");
+            password = sc.nextLine();
+
+            // --- Loại người dùng ---
+            while (true) {
+                System.out.print("Nhập loại người dùng (Customer/Seller): ");
+                try {
+                    userType = UserType.valueOf(sc.nextLine().trim());
+                    break;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("❌ Loại người dùng không hợp lệ! Vui lòng nhập lại.");
+                }
+            }
+
+            System.out.println("\n✅ Đăng ký người dùng thành công!");
+
+        } catch (Exception e) {
+            System.out.println("❌ Đã xảy ra lỗi: " + e.getMessage());
         }
 
-        System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
-        birthDate = sc.nextLine();
+        sc.close();
+    }
 
-        System.out.print("Nhập số điện thoại: ");
-        phoneNumber = sc.nextLine();
-
-        System.out.print("Nhập email: ");
-        email = sc.nextLine();
-
-        System.out.print("Nhập địa chỉ: ");
-        address = sc.nextLine();
-
-        System.out.print("Nhập mật khẩu: ");
-        password = sc.nextLine();
-
-        // --- Loại người dùng ---
-        while (true) {
-            System.out.print("Nhập loại người dùng (Customer/Seller): ");
-            try {
-                userType = UserType.valueOf(sc.nextLine());
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Loại người dùng không hợp lệ! Vui lòng nhập lại.");
-            }
-        }
+    private boolean isValidEmail(String email) {
+        // Regex đơn giản kiểm tra định dạng email
+        return Pattern.matches("^[\\w.-]+@gmail\\.com$", email);
     }
 }

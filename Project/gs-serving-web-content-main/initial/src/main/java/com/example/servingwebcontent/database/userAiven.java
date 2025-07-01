@@ -60,7 +60,7 @@ public class userAiven {
         return user;
     }
 
-    // ✅ Update user info
+    // Cập nhật thông tin User
     public void updateUser(User u) {
         try (Connection conn = myConnection.getConnection()) {
             String sql = "UPDATE Users SET name=?, gender=?, birthDate=?, phoneNumber=?, email=?, address=?, userType=? WHERE userID=?";
@@ -82,7 +82,7 @@ public class userAiven {
         }
     }
 
-    // ✅ Delete user
+    // Xóa User
     public void deleteUser(String id) {
         try (Connection conn = myConnection.getConnection()) {
             String sql = "DELETE FROM Users WHERE userID = ?";

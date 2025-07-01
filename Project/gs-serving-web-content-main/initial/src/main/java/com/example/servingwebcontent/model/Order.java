@@ -20,36 +20,20 @@ public class Order {
 
     public Order() {}
 
-    /*public void setTotalAmount(double amount) {
-        try {
-            if (amount < 0) {
-                throw new IllegalArgumentException("Tổng tiền không được âm.");
-            }
-            this.totalAmount = amount;
-        } catch (IllegalArgumentException e) {
-            System.out.println("Lỗi: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Lỗi không xác định khi cập nhật tổng tiền: " + e.getMessage());
-        }
-    }*/
-
-
-       // Getter cho orderID
     public String getOrderId() {
         return orderId;
     }
 
-    // Setter cho orderID
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
-    // Getter cho orderDate
+
     public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    // Setter cho orderDate
+
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }

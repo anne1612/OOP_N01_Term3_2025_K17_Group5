@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.example.servingwebcontent.model.User;
 
 public class WriteToFile {
+    //Sau này dùng để xuất hóa đơn
     public void ToFile(ArrayList<User> u) {
         try {
             
