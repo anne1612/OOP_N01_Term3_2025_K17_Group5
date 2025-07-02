@@ -79,11 +79,6 @@
     <div class="login-container">
         <h2>🐝 Đăng nhập Shopbee</h2>
 
-        <div th:if="${error}" class="alert alert-danger text-center w-75 mx-auto" role="alert">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-            <span th:text="${error}">Có lỗi xảy ra</span>
-        </div>
-
         <form th:action="@{/login}" th:object="${user}" method="post">
             <input type="email" th:field="*{email}" placeholder="Email" required>
             <input type="password" th:field="*{password}" placeholder="Mật khẩu" required>
